@@ -1,4 +1,14 @@
 /* log in page background */
+header {
+  font-size: 50px;
+  padding: 50px 32px;
+}
+
+header h1 {
+  color: #fff;
+  font-family: "'Montserrat', sans-serif";
+  font-weight: 200;
+}
 
 body{
   background: rgb(54,217,182);
