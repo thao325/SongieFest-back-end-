@@ -2,10 +2,15 @@ import { configureStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { userLoginReducer } from "./reducers/userReducers";
-import { musicPostListReducer } from "./reducers/musicPostReducers";
+import {
+  musicPostListReducer,
+  musicPostDetailsReducer,
+} from "./reducers/musicPostReducers";
 
+// update our state to handle data below
 const reducer = combineReducers({
   musicPostList: musicPostListReducer,
+  productDetails: musicPostDetailsReducer,
   userLogin: userLoginReducer,
 });
 

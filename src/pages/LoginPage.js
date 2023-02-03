@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -19,7 +20,7 @@ function LoginScreen({ Location, history }) {
 
   // dispatch login action, get our user state
   // userLogin is inside store.js
-  const userLogin = userSelector((state) => state.userLogin);
+  const userLogin = useSelector((state) => state.userLogin);
   // destructure userLogin (object)
   const { error, loading, userInfo } = userLogin;
 
