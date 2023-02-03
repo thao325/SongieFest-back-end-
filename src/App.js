@@ -1,20 +1,27 @@
 import React from "react";
 import "./App.css";
-// import Login from "./components/LogIn";
-import Footer from "./components/Footer";
+import { Container } from "react-bootstrap";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
-// import { HashRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import Footer from "./components/Footer";
+import HomeScreen from "./screens/HomeScreen";
+import LoginScreen from "./screens/LoginScreen";
+
+
 
 function App() {
   return (
-    <main className="App">
-  
+    <Router>
       <Header />
-      <Login />
-      {/* <Register /> */}
+      <main className="py3">
+        <Container>
+          <Route path="/" component={HomeScreen} exact />
+          <Route path="/login" component={LoginScreen} exact />
+          {/* <Route path='/register' component={RegisterScreen} exact /> */}
+        </Container>
+      </main>
       <Footer />
-
-    </main>
+    </Router>
   );
 }
 
