@@ -1,22 +1,32 @@
 import React from "react";
 import { Navbar, Nav, Container, Row } from "react-bootstrap";
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
+import { LinkContainer } from "react-router-bootstrap";
 
 function Header() {
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
-          {/* point to home page "/" */}
-          <Navbar.Brand href="/">SongieFest</Navbar.Brand>
+          <LinkContainer to="/">
+            {/* point to home page "/" */}
+            <Navbar.Brand>SongieFest</Navbar.Brand>
+          </LinkContainer>
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="/cart">Cart</Nav.Link>
-              <Nav.Link href="/login">Login</Nav.Link>
+              <LinkContainer to="/cart">
+                <Nav.Link>  
+                  {/* icons */}
+                  <i className="fas fa-shopping-cart"></i>Cart
+                </Nav.Link>
+              </LinkContainer>
+
+              <LinkContainer to="/login">
+                <Nav.Link>
+                  <i className="fas fa-user"></i>Login
+                </Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>
