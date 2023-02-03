@@ -4,10 +4,10 @@ import { Row, Col } from "react-bootstrap";
 import MusicPost from "../components/MusicPost";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { listMusicPosts } from "../actions/productActions";
+import { listMusicPosts } from "../actions/musicPostActions";
 
 // useSelector lets select certain parts of our state (our redux store)
-function HomePage() {
+function ExplorePage() {
   const dispatch = useDispatch();
   const musicPostList = useSelector((state) => musicPostList);
   const { error, loading, musicPosts } = musicPostList; // an object
@@ -41,4 +41,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default ExplorePage;

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import FormContainer from "./components/FormContainer";
+import FormContainer from "../components/FormContainer";
 import { login } from "../actions/userActions";
 
 function LoginScreen({ Location, history }) {
@@ -75,6 +75,7 @@ function LoginScreen({ Location, history }) {
           {/* check if new user, if yes link to register
         if we dont have link, send user to register page w/ no params */}
           New User?{" "}
+          {/* try "/register/" */}
           <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
             Register
           </Link>
