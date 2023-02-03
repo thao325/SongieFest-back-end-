@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 import MusicPost from "../components/MusicPost";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 import { listMusicPosts } from "../actions/productActions";
 
 // useSelector lets select certain parts of our state (our redux store)
@@ -20,10 +22,11 @@ function HomePage() {
       <h1>Latest Music Posts</h1>
       {/* while posts are loading, render loading message */}
       {loading ? (
-        <h2>Loading...</h2>
-      ) : // if error, render error message
+        <Loader />
+      ) : // if error, render error message.
+      // passing error as a child into this component
       error ? (
-        <h3>{error}</h3>
+        <Message variant="danger">{error}</Message>
       ) : (
         // if not loading & we don't have an error, render this row back
         <Row>

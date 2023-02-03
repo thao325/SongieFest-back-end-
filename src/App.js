@@ -3,14 +3,14 @@ import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import HomeScreen from "./pages/HomePage";
-import LoginScreen from "./pages/LoginPage";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
     <div>
       <Header />
-      <main className='py-3'>
+      <main className="py-3">
         <Container>
           <h1>SongieFest</h1>
         </Container>
