@@ -10,7 +10,7 @@ import {
 // which will update our state
 // redux Thunk async, make a function within a function
 
-const listMusicPosts = () => async (dispatch) => {
+export const listMusicPosts = () => async (dispatch) => {
   try {
     dispatch({ type: MUSIC_POST_LIST_REQUEST });
 
