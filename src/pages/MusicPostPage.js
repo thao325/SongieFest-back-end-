@@ -97,6 +97,14 @@ export default MusicPostPage;
 //     fetchProduct();
 //   }, []);
 
+///////  /// CAN ALSO DO THIS:     \\\\\\\\\\\\\
+
+// function ProductScreen() {
+
+//   let { id } = useParams();
+
+//   const product = products.find((p) => p._id === id)
+
 /////////    ORIGINAL BROKEN CODE FOLLOWING TUTORIAL: \\\\\\\\\\\\\\\\\\\\\\
 
 // function MusicPostPage({ match }) {
