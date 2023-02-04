@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useState} from "react";
+// import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+// import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import Loader from "../components/Loader";
@@ -15,32 +17,32 @@ function LoginPage() {
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const location = useLocation();
+  // const navigate = useNavigate();
+  // const location = useLocation();
 
   // check location, if we have those params, get that value
   // gives us an array, get 2nd index which is value in {redirect}
   // if dont have, set to empty /
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  // const redirect = location.search ? location.search.split("=")[1] : "/";
 
   // dispatch login action, get our user state
   // userLogin is inside store.js
   const userLogin = useSelector((state) => state.userLogin);
 
   // // destructure userLogin (object)
-  const { error, loading, userInfo } = userLogin;
+  const { error, loading } = userLogin;
 
   // logged in user can't log in again, if user info exists
   // redirect users, send them back to whatever was in redirect
   // then dispatch
-  useEffect(() => {
-    if (userInfo) {
-      navigate(redirect);
-    }
-  }, [navigate, userInfo, redirect]);
+  // useEffect(() => {
+  //   if (userInfo) {
+  //     navigate(redirect);
+  //   }
+  // }, [navigate, userInfo, redirect]);
 
-  // // function called when form submitted
-  // // dispatches `login` action w email & pw values to redux store
+  // function called when form submitted
+  // dispatches `login` action w email & pw values to redux store
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(login(email, password));
