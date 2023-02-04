@@ -7,6 +7,7 @@ import ExplorePage from "./pages/ExplorePage";
 import LoginPage from "./pages/LoginPage";
 import MusicPostPage from "./pages/MusicPostPage";
 import HomePage from "./pages/HomePage";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
             <Route path="/explore" element={<ExplorePage />} exact />
             <Route path="/login" element={<LoginPage />} exact />
             <Route path="/musicpost/:id" element={<MusicPostPage />} />
-            {/* <Routes path='/register' element={RegisterScreen} exact /> */}
+            <Routes path='/register' element={RegisterPage} exact />
           </Routes>
         </Container>
       </main>

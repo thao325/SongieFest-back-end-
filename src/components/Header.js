@@ -22,9 +22,9 @@ function Header() {
                 </Nav.Link>
               </LinkContainer> */}
 
-              {/* <LinkContainer to="/login"> */}
-              <Nav.Link href="/login">Login Page plz</Nav.Link>
-              {/* </LinkContainer> */}
+              <LinkContainer>
+                <Nav.Link href="/login">Login Page plz</Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>
