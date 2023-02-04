@@ -6,10 +6,12 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { listMusicPosts } from "../actions/musicPostActions";
 
-// useSelector lets select certain parts of our state (our redux store)
+// useSelector lets us select certain parts of our state (our redux store)
+// `state` here is a reference to data stored in redux store
+
 function ExplorePage() {
   const dispatch = useDispatch();
-  const musicPostList = useSelector((state) => musicPostList);
+  const musicPostList = useSelector((state) => state.musicPostList);
   const { error, loading, musicPosts } = musicPostList; // an object
 
   // dispatch to fire off listMusicPosts, call the function to update the store
