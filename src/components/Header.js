@@ -9,7 +9,7 @@ function Header() {
         <Container>
           <LinkContainer to="/">
             {/* point to home page "/" */}
-            <Navbar.Brand>SongieFest</Navbar.Brand>
+            <Navbar.Brand>Songie testing Fest</Navbar.Brand>
           </LinkContainer>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -22,11 +22,9 @@ function Header() {
                 </Nav.Link>
               </LinkContainer> */}
 
-              <LinkContainer to="/login">
-                <Nav.Link>
-                  <i className="fas fa-user"></i>Login
-                </Nav.Link>
-              </LinkContainer>
+              {/* <LinkContainer to="/login"> */}
+              <Nav.Link href="/login">Login Page plz</Nav.Link>
+              {/* </LinkContainer> */}
             </Nav>
           </Navbar.Collapse>
         </Container>

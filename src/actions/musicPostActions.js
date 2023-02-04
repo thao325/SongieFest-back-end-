@@ -17,8 +17,8 @@ export const listMusicPosts = () => async (dispatch) => {
   try {
     dispatch({ type: MUSIC_POST_LIST_REQUEST });
 
-    // home page shows all music posts
-    const { data } = await axios.get("/api/home/");
+    // explore shows all music posts
+    const { data } = await axios.get("/explore/");
 
     dispatch({
       type: MUSIC_POST_LIST_SUCCESS,
@@ -42,7 +42,7 @@ export const listMusicPostDetails = (id) => async (dispatch) => {
     dispatch({ type: MUSIC_POST_DETAILS_REQUEST });
 
     //
-    const { data } = await axios.get(`/api/musicpost/${id}`);
+    const { data } = await axios.get(`/explore/musicpost/${id}`);
 
     dispatch({
       type: MUSIC_POST_DETAILS_SUCCESS,

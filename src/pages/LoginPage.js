@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import Loader from "../components/Loader";
@@ -7,26 +7,27 @@ import Message from "../components/Message";
 import FormContainer from "../components/FormContainer";
 import { login } from "../actions/userActions";
 
-function LoginPage({ history }) {
+function LoginPage() {
   // email, pw = values entered by user into form
-  // `setEmail`, `setPW` updates state whenever user types 
+  // `setEmail`, `setPW` updates state whenever user types
   // into email/pw input fields
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // get redirect value from URL parameters
-  const { redirect } = useParams();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-   // if theres no redirect URL provided in URL params,
-  // set to "/" as default value
-  const redirectUrl = redirect || "/";
+  // check location, if we have those params, get that value
+  // gives us an array, get 2nd index which is value in {redirect}
+  // if dont have, set to empty /
+  const redirect = location.search ? location.search.split("=")[1] : "/";
 
   // dispatch login action, get our user state
-  const dispatch = useDispatch();
-
   // userLogin is inside store.js
   const userLogin = useSelector((state) => state.userLogin);
-  // destructure userLogin (object)
+
+  // // destructure userLogin (object)
   const { error, loading, userInfo } = userLogin;
 
   // logged in user can't log in again, if user info exists
@@ -34,12 +35,12 @@ function LoginPage({ history }) {
   // then dispatch
   useEffect(() => {
     if (userInfo) {
-      history.push(redirectUrl);
+      navigate(redirect);
     }
-  }, [history, userInfo, redirectUrl]);
-  
-  // function called when form submitted
-  // dispatches `login` action w email & pw values to redux store
+  }, [navigate, userInfo, redirect]);
+
+  // // function called when form submitted
+  // // dispatches `login` action w email & pw values to redux store
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(login(email, password));
@@ -82,7 +83,8 @@ function LoginPage({ history }) {
           {/* check if new user, if yes link to register
         if we dont have link, send user to register page w/ no params */}
           New User? {/* try "/register/" */}
-          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
+          <Link to="/register">
+            {/* <Link to={redirect ? `/register?redirect=${redirect}` : "/"}> */}
             Register
           </Link>
         </Col>
@@ -92,42 +94,3 @@ function LoginPage({ history }) {
 }
 
 export default LoginPage;
-
-/////  OLD CODE  //////   A MESS   \\\\\\\\\\\
-// issue w Location prop being passed to component
-// Location object should come from `useLocation` hook in react-router-dom library
-
-// function LoginScreen({ Location, history }) {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   const dispatch = useDispatch();
-
-//   const redirect = Location.search ? Location.search.split("=")[1] : "/";
-
-// check location, if we have those params, get that value
-// gives us an array, get 2nd index which is value in {redirect}
-// // if dont have, set to empty /
-// const redirect = Location.search ? Location.search.split("=")[1] : "/";
-
-// // dispatch login action, get our user state
-// // userLogin is inside store.js
-
-// const userLogin = useSelector((state) => state.userLogin);
-// // destructure userLogin (object)
-
-// const { error, loading, userInfo } = userLogin;
-
-// // logged in user can't log in again, if user info exists
-// // redirect users, send them back to whatever was in redirect
-// // then dispatch
-// useEffect(() => {
-//   if (userInfo) {
-//     history.push(redirect);
-//   }
-// }, [history, userInfo, redirect]);
-
-// const submitHandler = (e) => {
-//   e.preventDefault();
-//   dispatch(login(email, password));
-// };
