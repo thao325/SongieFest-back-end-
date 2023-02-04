@@ -1,30 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { Row, Col, ListGroup } from "react-bootstrap";
-import Loader from "../components/Loader";
 import Message from "../components/Message";
-import axios from "axios";
+import Loader from "../components/Loader";
+// import Comment from "../components/Comment";
+import { listMusicPostDetails } from "../actions/musicPostActions";
+
+// ======   PAGE FOR A SINGLE MUSIC POST    ==== //
+// 'musicpost/<id>/'
 
 function MusicPostPage() {
   const { id } = useParams();
-  const [musicPost, setMusicPost] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const dispatch = useDispatch();
+  const musicPostDetails = useSelector((state) => state.musicPostDetails);
+  const { loading, error, musicPost } = musicPostDetails;
 
   useEffect(() => {
-    async function fetchMusicPost() {
-      try {
-        const { data } = await axios.get(`/musicpost/${id}`);
-        setMusicPost(data);
-        setLoading(false);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    }
-
-    fetchMusicPost();
-  }, [id]);
+    dispatch(listMusicPostDetails(id));
+  }, [dispatch, id]);
 
   return (
     <div>
@@ -49,7 +43,6 @@ function MusicPostPage() {
               <ListGroup.Item>
                 <Comment value={musicPost.likesCount} />
               </ListGroup.Item> */}
-
               <ListGroup.Item>
                 Date Published: {musicPost.datePublished}
               </ListGroup.Item>
@@ -57,118 +50,60 @@ function MusicPostPage() {
           </Col>
         </Row>
       )}
+
+      <Row>
+        <Col md={6}>
+          {/* <Image src={musicPost.image} alt={musicPost.name} fluid /> */}
+        </Col>
+        <Col md={3}>
+          <ListGroup variant="flush">
+            <ListGroup.Item>
+              <h3>{musicPost.username}</h3>
+            </ListGroup.Item>
+
+            {/* <ListGroup.Item>
+              <Comment value={musicPost.likesCount} />
+            </ListGroup.Item> */}
+
+            <ListGroup.Item>
+              Date Published: {musicPost.datePublished}
+            </ListGroup.Item>
+          </ListGroup>
+        </Col>
+      </Row>
     </div>
   );
 }
 
 export default MusicPostPage;
 
-
-
-
-
 ///// BROKEN CODE BELOWWW
 
-// import React, { useState, useEffect } from "react";
-// // import { useDispatch, useSelector } from "react-redux";
-// import { Link, useParams } from "react-router-dom";
-// import {
-//   // Button,
-//   Row,
-//   Col,
-//   // Card,
-//   // Image,
-//   ListGroup,
-//   // ListGroupItem,
-// } from "react-bootstrap";
-// // import Comment from "../components/Comment";
-// import Loader from "../components/Loader";
-// import Message from "../components/Message";
-// import { listMusicPostDetails } from "../actions/musicPostActions";
+///// UDEMY COMMENT FIX:  \\\\\\\\\\\\\\\\\\\\\\\\\\
+
 // import axios from "axios";
 
-// // ======   PAGE FOR A SINGLE MUSIC POST    ==== //
-// // 'musicpost/<id>/'
+// function ProductScreen({ match }) {
+//   const productId = useParams();
 
-// function MusicPostPage({ match }) {
-//   const musicPostId = useParams();
-
-
-
-//   const [musicPost, setmusicPost] = useState([]);
+//   const [product, setProduct] = useState([]);
 
 //   useEffect(() => {
-//     async function fetchMusicPost() {
-//       const { data } = await axios.get(`/musicpost/${musicPostId.id}`);
-//       setMusicPost(data);
+//     async function fetchProduct() {
+//       const { data } = await axios.get(`/api/products/${productId.id}`);
+//       setProduct(data);
 //     }
 
-//     fetchMusicPost();
+//     fetchProduct();
 //   }, []);
 
-// // function MusicPostPage({ match }) {
-// //   const dispatch = useDispatch;
-// //   const musicPostDetails = useSelector((state) => state.musicPostDetails);
-// //   const { loading, error, musicPost } = musicPostDetails;
+/////////    ORIGINAL BROKEN CODE FOLLOWING TUTORIAL: \\\\\\\\\\\\\\\\\\\\\\
 
-// //   useEffect(() => {
-// //     dispatch(listMusicPostDetails(match.params.id));
-// //   }, [dispatch, match]);
+// function MusicPostPage({ match }) {
+//   const dispatch = useDispatch;
+//   const musicPostDetails = useSelector((state) => state.musicPostDetails);
+//   const { loading, error, musicPost } = musicPostDetails;
 
-//   return (
-//     <div>
-//       <Link to="/" className="btn btn-light my-3">
-//         Go Back
-//       </Link>
-//       {loading ? (
-//         <Loader />
-//       ) : error ? (
-//         <Message variant="danger">{error}</Message>
-//       ) : (
-//         <Row>
-//           <Col md={6}>
-//             {/* <Image src={musicPost.image} alt={musicPost.name} fluid /> */}
-//           </Col>
-//           <Col md={3}>
-//             <ListGroup variant="flush">
-//               <ListGroup.Item>
-//                 <h3>{musicPost.username}</h3>
-//               </ListGroup.Item>
-//               {/* 
-//               <ListGroup.Item>
-//                 <Comment value={musicPost.likesCount} />
-//               </ListGroup.Item> */}
-
-//               <ListGroup.Item>
-//                 Date Published: {musicPost.datePublished}
-//               </ListGroup.Item>
-//             </ListGroup>
-//           </Col>
-//         </Row>
-//       )}
-
-//       <Row>
-//         <Col md={6}>
-//           {/* <Image src={musicPost.image} alt={musicPost.name} fluid /> */}
-//         </Col>
-//         <Col md={3}>
-//           <ListGroup variant="flush">
-//             <ListGroup.Item>
-//               <h3>{musicPost.username}</h3>
-//             </ListGroup.Item>
-
-//             {/* <ListGroup.Item>
-//               <Comment value={musicPost.likesCount} />
-//             </ListGroup.Item> */}
-
-//             <ListGroup.Item>
-//               Date Published: {musicPost.datePublished}
-//             </ListGroup.Item>
-//           </ListGroup>
-//         </Col>
-//       </Row>
-//     </div>
-//   );
-// }
-
-// export default MusicPostPage;
+//   useEffect(() => {
+//     dispatch(listMusicPostDetails(match.params.id));
+//   }, [dispatch, match]);
