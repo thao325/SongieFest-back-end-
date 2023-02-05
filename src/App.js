@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ExplorePage from "./pages/ExplorePage";
-import LoginPage from "./pages/LoginPage";
+// import LoginPage from "./pages/LoginPage";
 import MusicPostPage from "./pages/MusicPostPage";
 import HomePage from "./pages/HomePage";
-import {Register} from "./pages/Register.jsx";
+import { Register } from "./pages/Register.jsx";
+import { Login } from "./pages/Login.jsx";
 
 function App() {
   return (
@@ -19,9 +20,9 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} exact />
             <Route path="/explore" element={<ExplorePage />} exact />
-            <Route path="/login" element={<LoginPage />} exact />
+            <Route path="/login" element={<Login />} exact />
             <Route path="/musicpost/:id" element={<MusicPostPage />} />
-            <Route path='/register' element={<Register/>} exact />
+            <Route path="/register" element={<Register />} exact />
           </Routes>
         </Container>
       </main>

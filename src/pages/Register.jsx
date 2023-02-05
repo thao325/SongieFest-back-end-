@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 
 
+
 import '../style-sheets/Register.css';
 import 'bulma/css/bulma.min.css';
 import axios from "axios";
