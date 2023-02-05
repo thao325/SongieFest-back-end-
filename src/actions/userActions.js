@@ -13,7 +13,7 @@ import {
   USER_REGISTER_FAIL,
 } from "../constants/userConstants";
 
-const baseUrl = "https://songiefest-be.herokuapp.com/register/";
+const baseUrl = "https://songiefest-be.herokuapp.com/";
 
 // take user's email & pw, set user login request, make POST request
 // if successfull, dispatch & send payload to our reducer
@@ -31,7 +31,7 @@ export const login = (username, password) => async (dispatch) => {
     // make post request, destructure data
     // send username & pw, get back a token
     const { data } = await axios.post(
-      `${baseUrl}/login`,
+      `${baseUrl}login/`,
       // need to also send our data (email, pw)
       // if we didn't change user model, django expects username which is
       // our email but need to send it as username
@@ -78,7 +78,7 @@ export const register = (name, email, password) => async (dispatch) => {
       },
     };
     const { data } = await axios.post(
-      `${baseUrl}/register`,
+      `${baseUrl}register/`,
       { name: name, email: email, password: password },
       config
     );
