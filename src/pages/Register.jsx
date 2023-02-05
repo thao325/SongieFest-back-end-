@@ -63,39 +63,39 @@ export const Register = ()=>{
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></link>
     <form className="register-form" >
 
-    <label class="label" htmlFor="firstname">First Name</label>
-    <div class="control">
-        <input class="input" type="text" name="first_name" onChange={handleChange} id="firstname" placeholder="First Name"/>
+    <label className="label" htmlFor="firstname">First Name</label>
+    <div className="control">
+        <input className="input" type="text" name="first_name" onChange={handleChange} id="firstname" placeholder="First Name"/>
     </div>
 
-    <label class="label" htmlFor="lastname">Last Name</label>
-        <input class="input" name="last_name" onChange={handleChange} id="lastname" placeholder="Last Name"/>
+    <label className="label" htmlFor="lastname">Last Name</label>
+        <input className="input" name="last_name" onChange={handleChange} id="lastname" placeholder="Last Name"/>
 
     
         
 
-        <label htmlFor='username'class="label">Username</label>
-        <div class="control has-icons-left has-icons-right">
-            <input class="input is-success" name="username" onChange={handleChange} id="username" placeholder="Username" />
-            <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
+        <label htmlFor='username'className="label">Username</label>
+        <div className="control has-icons-left has-icons-right">
+            <input className="input is-success" name="username" onChange={handleChange} id="username" placeholder="Username" />
+            <span className="icon is-small is-left">
+                <i className="fas fa-user"></i>
             </span>
-            <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
+            <span className="icon is-small is-right">
+                <i className="fas fa-check"></i>
             </span>
         </div>
 
         {/* <label htmlFor="username">Username</label> */}
         {/* <input name="username" onChange={handleChange} id="username" placeholder="Username" /> */}
     
-        <label class='label' htmlFor="email">Email</label>
-        <p class="control has-icons-left has-icons-right">
-            <input class="input" placeholder="Email" onChange={handleChange} type="email"  id="email" name="email"/>
-            <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
+        <label className='label' htmlFor="email">Email</label>
+        <p className="control has-icons-left has-icons-right">
+            <input className="input" placeholder="Email" onChange={handleChange} type="email"  id="email" name="email"/>
+            <span className="icon is-small is-left">
+                <i className="fas fa-envelope"></i>
             </span>
-            <span class="icon is-small is-right">
-                <i class="fas fa-check"></i>
+            <span className="icon is-small is-right">
+                <i className="fas fa-check"></i>
             </span>
         </p>
 
@@ -105,11 +105,11 @@ export const Register = ()=>{
         <label htmlFor="confirm-password"> Confirm Password</label>
         <input  onChange={handleChange} type="confirm-password" id="confirm-password" name="confirm-password" /> */}
         <label htmlFor="password">Password</label>
-        <div class="field">
-            <p class="control has-icons-left">
-                <input class="input" type="password" placeholder="Password" onChange={handleChange} id="password" name="password"/>
-                    <span class="icon is-small is-left">
-                        <i class="fa-solid fa-lock"></i>
+        <div className="field">
+            <p className="control has-icons-left">
+                <input className="input" type="password" placeholder="Password" onChange={handleChange} id="password" name="password" autoComplete="off"/>
+                    <span className="icon is-small is-left">
+                        <i className="fa-solid fa-lock"></i>
                     
                     </span>
             </p>

@@ -72,6 +72,7 @@ function LoginPage() {
           <Form.Control
             type="password"
             placeholder="Enter Password"
+            autoComplete="off"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
