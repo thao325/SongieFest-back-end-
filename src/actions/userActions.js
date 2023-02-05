@@ -3,7 +3,7 @@ import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
-  // USER_LOGOUT,
+  USER_LOGOUT,
 } from "../constants/userConstants";
 
 // take user's email & pw, set user login request, make POST request
@@ -48,4 +48,11 @@ export const login = (email, password) => async (dispatch) => {
           : error.message,
     });
   }
+};
+
+export const logout = () => (dispatch) => {
+  // removes user from localStorage & in our state
+  localStorage.removeItem("userInfo");
+  // dispatch logout action
+  dispatch({ type: USER_LOGOUT });
 };
