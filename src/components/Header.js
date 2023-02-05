@@ -2,6 +2,7 @@ import React from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../actions/userActions";
 
 function Header() {
   // log out, dispatch & get state
@@ -10,9 +11,11 @@ function Header() {
   // destructure, only need userLogin info (don't need error message, loading)
   const { userInfo } = userLogin;
 
+  const dispatch = useDispatch();
   // onClick event to logout user
   const logoutHandler = () => {
-    console.log("Logout");
+    // dispatch our logout action
+    dispatch(logout());
   };
 
   return (
