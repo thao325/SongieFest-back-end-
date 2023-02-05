@@ -7,7 +7,7 @@ import ExplorePage from "./pages/ExplorePage";
 import LoginPage from "./pages/LoginPage";
 import MusicPostPage from "./pages/MusicPostPage";
 import HomePage from "./pages/HomePage";
-// import RegisterPage from "./pages/RegisterPage";
+import {Register} from "./pages/Register.jsx";
 
 function App() {
   return (
@@ -15,13 +15,13 @@ function App() {
       <Header />
       <main className="py-3">
         <Container>
-          <h1>testing</h1>
+          <h1>SongieFest</h1>
           <Routes>
             <Route path="/" element={<HomePage />} exact />
             <Route path="/explore" element={<ExplorePage />} exact />
             <Route path="/login" element={<LoginPage />} exact />
             <Route path="/musicpost/:id" element={<MusicPostPage />} />
-            {/* <Routes path='/register' element={RegisterPage} exact /> */}
+            <Route path='/register' element={<Register/>} exact />
           </Routes>
         </Container>
       </main>
