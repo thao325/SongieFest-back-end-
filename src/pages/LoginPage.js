@@ -1,6 +1,7 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 // import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+// need to import { Redirec } from react-router-dom?
 // import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Button, Row, Col } from "react-bootstrap";
@@ -29,12 +30,13 @@ function LoginPage() {
   // userLogin is inside store.js
   const userLogin = useSelector((state) => state.userLogin);
 
-  // // destructure userLogin (object)
+  // // destructure userLogin (object), userInfo should be included {}
   const { error, loading } = userLogin;
 
   // logged in user can't log in again, if user info exists
   // redirect users, send them back to whatever was in redirect
   // then dispatch
+
   // useEffect(() => {
   //   if (userInfo) {
   //     navigate(redirect);
