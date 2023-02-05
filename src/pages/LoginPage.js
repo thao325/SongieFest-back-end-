@@ -14,7 +14,7 @@ function LoginPage() {
   // email, pw = values entered by user into form
   // `setEmail`, `setPW` updates state whenever user types
   // into email/pw input fields
-  const [email, setEmail] = useState("");
+  const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
@@ -47,7 +47,7 @@ function LoginPage() {
   // dispatches `login` action w email & pw values to redux store
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(login(email, password));
+    dispatch(login(username, password));
   };
 
   return (
@@ -57,12 +57,12 @@ function LoginPage() {
       {loading && <Loader />}
 
       <Form onSubmit={submitHandler}>
-        <Form.Group controlId="email">
+        <Form.Group controlId="username">
           <Form.Label>Email Address</Form.Label>
           <Form.Control
-            type="email"
+            type="username"
             placeholder="Enter Email"
-            value={email}
+            value={username}
             onChange={(e) => setEmail(e.target.value)}
           ></Form.Control>
         </Form.Group>

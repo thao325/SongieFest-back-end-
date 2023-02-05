@@ -7,7 +7,8 @@ import ExplorePage from "./pages/ExplorePage";
 import LoginPage from "./pages/LoginPage";
 import MusicPostPage from "./pages/MusicPostPage";
 import HomePage from "./pages/HomePage";
-import {Register} from "./pages/Register.jsx";
+// import {Register} from "./pages/Register.jsx";
+import RegisterPage from "./pages/RegisterPage";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
             <Route path="/explore" element={<ExplorePage />} exact />
             <Route path="/login" element={<LoginPage />} exact />
             <Route path="/musicpost/:id" element={<MusicPostPage />} />
-            <Route path='/register' element={<Register/>} exact />
+            {/* <Route path='/register' element={<Register/>} exact /> */}
+            <Route path="/register" element={<RegisterPage />} exact />
           </Routes>
         </Container>
       </main>

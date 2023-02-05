@@ -10,8 +10,8 @@ function Header() {
   const userLogin = useSelector((state) => state.userLogin);
   // destructure, only need userLogin info (don't need error message, loading)
   const { userInfo } = userLogin;
-
   const dispatch = useDispatch();
+
   // onClick event to logout user
   const logoutHandler = () => {
     // dispatch our logout action

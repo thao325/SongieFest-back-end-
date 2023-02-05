@@ -5,13 +5,16 @@ import {
   musicPostListReducer,
   musicPostDetailsReducer,
 } from "./reducers/musicPostReducers";
-import { userLoginReducer } from "./reducers/userReducers";
+// import { userLoginReducer } from "./reducers/userReducers";
+import { userLoginReducer, userRegisterReducer } from "./reducers/userReducers";
 
 // update our state to handle data below
 const reducer = combineReducers({
   musicPostList: musicPostListReducer,
   musicPostDetails: musicPostDetailsReducer,
   userLogin: userLoginReducer,
+  ////////////    TESTING REGISTER USER
+  userRegister: userRegisterReducer,
 });
 
 // pull data from localStorage when user first logs in

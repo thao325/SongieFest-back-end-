@@ -1,5 +1,108 @@
-// import { useRef, useState, useEffect } from "react";
+///// THAO TESTING REGISTER USER FROM UDEMY
 
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Form, Button, Row, Col, FormGroup } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import Message from "../components/Message";
+import Loader from "../components/Loader";
+import FormContainer from "../components/FormContainer";
+import { register } from "../actions/userActions";
+
+function RegisterPage() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmPassword] = useState("");
+  const [message, setMessage] = useState("");
+
+  const dispatch = useDispatch();
+
+  const userRegister = useSelector((state) => state.userRegister);
+  const { error, loading } = userRegister;
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    if (password !== confirmpassword) {
+      setMessage("Passwords do not match");
+    } else {
+      dispatch(register(name, email, password));
+    }
+  };
+  return (
+    <FormContainer>
+      <h1>Sign In</h1>
+      {message && <Message variant="danger">{message}</Message>}
+      {error && <Message variant="danger">{error}</Message>}
+      {loading && <Loader />}
+      <Form onSubmit={submitHandler}>
+        <FormGroup controlId="name">
+          <Form.Label> Name</Form.Label>
+
+          <Form.Control
+            required
+            type="name"
+            placeholder="Enter Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          ></Form.Control>
+        </FormGroup>
+
+        <FormGroup controlId="email">
+          <Form.Label> Email Address</Form.Label>
+
+          <Form.Control
+            required
+            type="email"
+            placeholder="Enter Email"
+            autoComplete="username"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          ></Form.Control>
+        </FormGroup>
+        <FormGroup controlId="password">
+          <Form.Label> Password</Form.Label>
+
+          <Form.Control
+            required
+            type="password"
+            placeholder="Enter Password"
+            autoComplete="off"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          ></Form.Control>
+        </FormGroup>
+        <FormGroup controlId="passwordConfirm">
+          <Form.Label> Confirm Password</Form.Label>
+
+          <Form.Control
+            required
+            type="password"
+            placeholder="Confirm password"
+            autoComplete="new-password"
+            value={confirmpassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          ></Form.Control>
+        </FormGroup>
+        <Button type="submit" variant="primary">
+          Register
+        </Button>
+        <Row className="py-3">
+          <Col>
+            Have an Account? <Link to="/login">Sign In</Link>
+          </Col>
+        </Row>
+      </Form>
+    </FormContainer>
+  );
+}
+
+export default RegisterPage;
+
+///////// OLD CODE BELOW
+
+// import { useRef, useState, useEffect } from "react";
 
 // import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,8 +111,6 @@
 // const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 // const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 // const REGISTER_URL = '/register';
-
-
 
 // const Register = () => {
 //   const userRef = useRef();
@@ -124,7 +225,6 @@
 //                           Letters, numbers, underscores, hyphens allowed.
 //                       </p>
 
-
 //                       <label htmlFor="password">
 //                           Password:
 //                           <FontAwesomeIcon icon={faCheck} className={validPwd ? "valid" : "hide"} />
@@ -147,7 +247,6 @@
 //                           Must include uppercase and lowercase letters, a number and a special character.<br />
 //                           Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
 //                       </p>
-
 
 //                       <label htmlFor="confirm_pwd">
 //                           Confirm Password:

@@ -6,10 +6,18 @@ import {
   USER_LOGOUT,
 } from "../constants/userConstants";
 
+//// testing REGISTER USER
+import {
+  USER_REGISTER_REQUEST,
+  USER_REGISTER_SUCCESS,
+  USER_REGISTER_FAIL,
+} from "../constants/userConstants";
+
+const baseUrl = "https://songiefest-be.herokuapp.com/register/";
+
 // take user's email & pw, set user login request, make POST request
 // if successfull, dispatch & send payload to our reducer
-
-export const login = (email, password) => async (dispatch) => {
+export const login = (username, password) => async (dispatch) => {
   try {
     dispatch({
       type: USER_LOGIN_REQUEST,
@@ -23,11 +31,11 @@ export const login = (email, password) => async (dispatch) => {
     // make post request, destructure data
     // send username & pw, get back a token
     const { data } = await axios.post(
-      "/users/login",
+      `${baseUrl}/login`,
       // need to also send our data (email, pw)
       // if we didn't change user model, django expects username which is
       // our email but need to send it as username
-      { username: email, password: password },
+      { email: username, password: password },
       config
     );
 
@@ -55,4 +63,41 @@ export const logout = () => (dispatch) => {
   localStorage.removeItem("userInfo");
   // dispatch logout action
   dispatch({ type: USER_LOGOUT });
+};
+
+/////////////    TESTING REGISTER USER     \\\\\\\\
+
+export const register = (name, email, password) => async (dispatch) => {
+  try {
+    dispatch({
+      type: USER_REGISTER_REQUEST,
+    });
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+      },
+    };
+    const { data } = await axios.post(
+      `${baseUrl}/register`,
+      { name: name, email: email, password: password },
+      config
+    );
+    dispatch({
+      type: USER_REGISTER_SUCCESS,
+      payload: data,
+    });
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload: data,
+    });
+    localStorage.setItem("userInfo", JSON.stringify(data));
+  } catch (error) {
+    dispatch({
+      type: USER_REGISTER_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
+    });
+  }
 };
