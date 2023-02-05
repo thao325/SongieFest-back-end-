@@ -62,12 +62,17 @@ export const Register = ()=>{
         <h2>Register</h2>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"></link>
     <form className="register-form" >
-        <label htmlFor="firstname">First Name</label>
-        <input  name="first_name" onChange={handleChange} id="firstname" placeholder="First Name" />
-        <p></p>
-        <label htmlFor="lastname">Last Name</label>
-        <input  name="last_name" onChange={handleChange} id="lastname" placeholder="Last Name" />
-        <p></p>
+
+    <label class="label" htmlFor="firstname">First Name</label>
+    <div class="control">
+        <input class="input" type="text" name="first_name" onChange={handleChange} id="firstname" placeholder="First Name"/>
+    </div>
+
+    <label class="label" htmlFor="lastname">Last Name</label>
+        <input class="input" name="last_name" onChange={handleChange} id="lastname" placeholder="Last Name"/>
+
+    
+        
 
         <label htmlFor='username'class="label">Username</label>
         <div class="control has-icons-left has-icons-right">
