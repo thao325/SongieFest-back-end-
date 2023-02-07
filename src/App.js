@@ -7,7 +7,11 @@ import ExplorePage from "./Forms/ExplorePage";
 import LoginPage from "./Forms/LoginForm";
 import MusicPostPage from "./Forms/MusicPostPage";
 import HomePage from "./Pages/HomePage";
-import {Register} from "./Forms/Register.jsx";
+import { Register } from "./Forms/Register.jsx";
+
+const baseUrl = "https://songiefest-be.herokuapp.com/";
+
+// get all music Posts
 
 function App() {
   return (
@@ -21,7 +25,7 @@ function App() {
             <Route path="/explore" element={<ExplorePage />} exact />
             <Route path="/login" element={<LoginPage />} exact />
             <Route path="/musicpost/:id" element={<MusicPostPage />} />
-            <Route path='/register' element={<Register/>} exact />
+            <Route path="/register" element={<Register />} exact />
           </Routes>
         </Container>
       </main>
