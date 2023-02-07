@@ -83,9 +83,8 @@ function LoginForm() {
       </Form>
       <Row className="py-3">
         <Col>
-          New User?
-          <Link to="/register">
-            Register
+          New User? <Link to="/register">
+            Register Here!
             {/* <Button variant="link" onClick={handleRegisterClick}>
             Register
         </Button> */}

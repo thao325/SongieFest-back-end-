@@ -1,3 +1,15 @@
+import React from "react";
+
+function ExplorePage() {
+  return (
+    <div>
+      <h1 className="heading">Latest Music Posts</h1>
+    </div>
+  );
+}
+
+export default ExplorePage;
+
 // import React, { useEffect, useState, Component } from "react";
 // import axios from "axios";
 
@@ -28,15 +40,7 @@
 
 // <div>
 //       <h1>Latest Music Posts</h1>
-//       {/* while posts are loading, render loading message */}
-//       {loading ? (
-//         <Loader />
-//       ) : // if error, render error message.
-//       // passing error as a child into this component
-//       error ? (
-//         <Message variant="danger">{error}</Message>
-//       ) : (
-//         // if not loading & we don't have an error, render this row back
+//
 //         <Row>
 //           {musicPosts.map((musicPost) => (
 //             <Col key={musicPost.id} sm={12} md={6} lg={4} xL={3}>
