@@ -3,11 +3,11 @@ import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ExplorePage from "./pages/ExplorePage";
-import LoginPage from "./pages/LoginPage";
-import MusicPostPage from "./pages/MusicPostPage";
-import HomePage from "./pages/HomePage";
-import {Register} from "./pages/Register.jsx";
+import ExplorePage from "./Forms/ExplorePage";
+import LoginPage from "./Forms/LoginForm";
+import MusicPostPage from "./Forms/MusicPostPage";
+import HomePage from "./Pages/HomePage";
+import {Register} from "./Forms/Register.jsx";
 
 function App() {
   return (
