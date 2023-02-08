@@ -58,7 +58,7 @@ export const Register = ()=>{
             document.cookie = "token=" + response.data['token'];
             const token = document.cookie;
         
-            
+            console.log(document.cookie)
             console.log(token)
             });
         

@@ -44,9 +44,10 @@ function LoginForm() {
     ?.split('=')[1];
     const token = 'Token ' + cookieValue;
     // const token = document.cookie
-    console.log(loginData.username);
-    console.log(token);
-    console.log(loginData.password);
+    // console.log(loginData.username);
+    console.log(document.cookie)
+    // console.log(token);
+    // console.log(loginData.password);
 
     axios
       .post(`${baseUrl}/login/`, 
