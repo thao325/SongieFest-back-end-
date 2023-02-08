@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // // import "./App.css";
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -7,13 +7,13 @@ import ExplorePage from "./Pages/ExplorePage";
 import ProfilePage from "./Pages/ProfilePage";
 import LoginForm from "./Forms/LoginForm";
 import Header from "./Components/Header.js";
+import CommentForm from "./Forms/CommentForm";
+import CommentList from "./Components/CommentList";
 // import MusicPost from "./Components/MusicPost.js";
 // import Song from "./Components/Song.js";
 import HomePage from "./Pages/HomePage";
-// import musicPosts from "./musicpostdata";
 // import { Register } from "./Forms/Register.jsx";
 // import axios from "axios";
-
 
 // const baseUrl = "https://songiefest-be.herokuapp.com";
 
@@ -59,8 +59,38 @@ import HomePage from "./Pages/HomePage";
 // // do we want users to post a music post?
 
 function App() {
+  const [comments, setComments] = useState([]);
+
+  function addComment(inputText) {
+    setComments((prevComments) => {
+      return [...prevComments, inputText];
+    });
+  }
+
+  function deleteComment(id) {
+    setComments((prevComments) => {
+      return prevComments.filter((comment, index) => {
+        return index !== id;
+      });
+    });
+  }
+
   return (
     <div>
+      <CommentForm onAdd={addComment} />
+      <div>
+        <ul>
+          {comments.map((commentList, index) => (
+            <CommentList
+              key={index}
+              id={index}
+              text={commentList}
+              onChecked={deleteComment}
+            />
+          ))}
+        </ul>
+      </div>
+
       <Router>
         <Header />
         <main className="py-3">
@@ -72,16 +102,12 @@ function App() {
               <Route path="/login" element={<LoginForm />} exact />
               {/* <Route path="/musicpost/:id" element={<MusicPostPage />} /> */}
               {/* <Route path="/register" element={<Register />} exact /> */}
-              <Route
-                path="/<str:username>"
-                element={<ProfilePage />} />
-
+              <Route path="/<str:username>" element={<ProfilePage />} />
             </Routes>
           </Container>
         </main>
         <Footer />
       </Router>
-
     </div>
   );
 }
