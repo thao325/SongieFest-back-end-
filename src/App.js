@@ -9,6 +9,7 @@ import Header from "./Components/Header.js";
 import MusicPost from "./Components/MusicPost.js";
 // import Song from "./Components/Song.js";
 import HomePage from "./Pages/HomePage";
+import songs from "./songdata";
 // import { Register } from "./Forms/Register.jsx";
 // import axios from "axios";
 
@@ -67,9 +68,35 @@ function App() {
               <Route path="/" element={<HomePage />} exact />
               <Route path="/explore" element={<ExplorePage />} exact />
               <Route path="/login" element={<LoginForm />} exact />
-              <Route path="/<str:username>" element={<MusicPost />} />
               {/* <Route path="/musicpost/:id" element={<MusicPostPage />} /> */}
               {/* <Route path="/register" element={<Register />} exact /> */}
+              <Route
+                path="/<str:username>"
+                element={
+                  <>
+                    {/* MusicPost object assigned props
+                  // grabbing data from song.js (array of JS objects) */}
+                    <MusicPost
+                      month={songs[0].month}
+                      // img={songs[0].img}
+                      song1={songs[0].song1}
+                      song2={songs[0].song2}
+                      song3={songs[0].song3}
+                      song4={songs[0].song4}
+                      song5={songs[0].song5}
+                    />
+                    <MusicPost
+                      month={songs[1].month}
+                      // img={songs[1].img}
+                      song1={songs[1].song1}
+                      song2={songs[1].song2}
+                      song3={songs[1].song3}
+                      song4={songs[1].song4}
+                      song5={songs[1].song5}
+                    />
+                  </>
+                }
+              />
             </Routes>
           </Container>
         </main>
@@ -82,42 +109,3 @@ function App() {
 }
 
 export default App;
-
-// song component, when created will have these 5 properties:
-// id, title, artist, album, playcount  */}
-//<Song
-// title="Someday"
-// artist="Brooks"
-// album="EP"
-// playcount="1,000"
-//>
-
-//   <Song
-//     title="Birds"
-//     artist="Coldplay"
-//     album="A Head Full of Dreams"
-//     playcount="50"
-//   />
-
-//   <Song
-//     title="golden hour"
-//     artist="JVKE, ILLENIUM, NURKO"
-//     album="EP"
-//     playcount="500"
-//   />
-
-//   <Song
-//     title="Pizza"
-//     artist="Martin Garrix"
-//     album="EP"
-//     playcount="1,000"
-//   />
-
-//   <Song
-//     title="Akuma no Ko (Attack on Titan)"
-//     artist="Kayou. Beats"
-//     album="EP"
-//     playcount="1,000"
-//   />
-
-// </div>
