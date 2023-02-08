@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import FormContainer from "../Components/FormContainer";
+import { useNavigate } from "react-router-dom";
 // import Loader from "../Components/Loader";
 // import Message from "../Components/Message";
 
 
 import axios from "axios";
+// import { navigate } from "@reach/router";
 
 function LoginForm() {
   const baseUrl = "https://songiefest-be.herokuapp.com";
@@ -24,22 +26,45 @@ function LoginForm() {
     setLoginData({
       ...loginData,
       [event.target.name]: event.target.value,
+      
     });
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log(loginData.username);
-    console.log(loginData.password);
+
   };
+
+  const navigate = useNavigate();
+  const handleLoginClick = () => navigate("/explore");
   function loginApi() {
+    const cookieValue = document.cookie
+    .split('; ')
+    .find((row) => row.startsWith('token='))
+    ?.split('=')[1];
+    const token = 'Token ' + cookieValue;
+    // const token = document.cookie
+    console.log(loginData.username);
+    console.log(token);
+    console.log(loginData.password);
+
     axios
-      .post(`${baseUrl}/login/`, {
-        username: loginData.username,
-        password: loginData.password,
-      })
+      .post(`${baseUrl}/login/`, 
+      {
+        'username': loginData.username,
+        'password': loginData.password,
+    
+      }, 
+      {headers: { 'Content-Type': 'application/json', 
+                        'Authorization': `${token}`,
+                        // withCredentials: true
+                        }
+                      }
+                      )
       .then((response) => {
         console.log("login data from API", response.data);
+        handleLoginClick();
+        ;
       })
       .catch((error) => {
         console.log("Error status", error.response.status);

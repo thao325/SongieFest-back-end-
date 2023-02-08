@@ -7,6 +7,9 @@ import 'bulma/css/bulma.min.css';
 import axios from "axios";
 
 const baseUrl= 'https://songiefest-be.herokuapp.com/register/'
+
+
+
 export const Register = ()=>{
 
     // const [email, setEmail] = useState('');
@@ -28,6 +31,11 @@ export const Register = ()=>{
 
     });
 
+    // const [token, setTokenData] = useState({
+    //     "token": ""
+
+    // });
+
     const handleChange=(event) =>{
         setUserData({
             ...userData,
@@ -35,7 +43,8 @@ export const Register = ()=>{
         });
     }
 
-    const submitForm = () => {
+    const submitForm = (event) => {
+        event.preventDefault();
         const userFormData=new FormData();
         userFormData.append("first_name", userData.first_name)
         userFormData.append("last_name", userData.last_name)
@@ -44,7 +53,13 @@ export const Register = ()=>{
         userFormData.append("username", userData.username)
         try{
             axios.post(baseUrl, userFormData).then((response)=>{
-            console.log(response.data)
+            // setTokenData(response.data['token']);
+            // console.log(token);
+            document.cookie = "token=" + response.data['token'];
+            const token = document.cookie;
+        
+            
+            console.log(token)
             });
         
         }catch(error){
@@ -52,8 +67,8 @@ export const Register = ()=>{
         }
     };
         
-        const navigate = useNavigate();
-        const handleLoginClick = () => navigate("/login");
+    const navigate = useNavigate();
+    const handleLoginClick = () => navigate("/login");
         
     
     

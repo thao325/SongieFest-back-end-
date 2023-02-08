@@ -12,7 +12,7 @@ import CommentList from "./Components/CommentList";
 // import MusicPost from "./Components/MusicPost.js";
 // import Song from "./Components/Song.js";
 import HomePage from "./Pages/HomePage";
-// import { Register } from "./Forms/Register.jsx";
+import { Register } from "./Forms/Register.jsx";
 // import axios from "axios"; 
 
 // const baseUrl = "https://songiefest-be.herokuapp.com";
@@ -101,7 +101,7 @@ function App() {
               <Route path="/explore" element={<ExplorePage />} exact />
               <Route path="/login" element={<LoginForm />} exact />
               {/* <Route path="/musicpost/:id" element={<MusicPostPage />} /> */}
-              {/* <Route path="/register" element={<Register />} exact /> */}
+              <Route path="/register" element={<Register />} exact />
               <Route path="/<str:username>" element={<ProfilePage />} />
             </Routes>
           </Container>
