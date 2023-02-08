@@ -1,5 +1,6 @@
-const songs = [
+const musicPosts = [
   {
+    id: 1,
     month: "January 2023",
     // img: "actual pic link" (image src) for pfp
     song1: "Akuma no Ko (Attack on Titan) ❤️ played 100 times",
@@ -9,6 +10,7 @@ const songs = [
     song5: "Birds ❤️ played 18 times",
   },
   {
+    id: 2,
     month: "February 2023",
     song1: "All Girls Are The Same ❤️ played 70 times",
     song2: "Digits ❤️ played 35 times",
@@ -18,7 +20,7 @@ const songs = [
   },
 ];
 
-export default songs;
+export default musicPosts;
 
 // const songs = [
 // {

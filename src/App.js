@@ -4,14 +4,16 @@ import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer";
 import ExplorePage from "./Pages/ExplorePage";
+import ProfilePage from "./Pages/ProfilePage";
 import LoginForm from "./Forms/LoginForm";
 import Header from "./Components/Header.js";
-import MusicPost from "./Components/MusicPost.js";
+// import MusicPost from "./Components/MusicPost.js";
 // import Song from "./Components/Song.js";
 import HomePage from "./Pages/HomePage";
-import songs from "./songdata";
+// import musicPosts from "./musicpostdata";
 // import { Register } from "./Forms/Register.jsx";
 // import axios from "axios";
+
 
 // const baseUrl = "https://songiefest-be.herokuapp.com";
 
@@ -72,38 +74,14 @@ function App() {
               {/* <Route path="/register" element={<Register />} exact /> */}
               <Route
                 path="/<str:username>"
-                element={
-                  <>
-                    {/* MusicPost object assigned props
-                  // grabbing data from song.js (array of JS objects) */}
-                    <MusicPost
-                      month={songs[0].month}
-                      // img={songs[0].img}
-                      song1={songs[0].song1}
-                      song2={songs[0].song2}
-                      song3={songs[0].song3}
-                      song4={songs[0].song4}
-                      song5={songs[0].song5}
-                    />
-                    <MusicPost
-                      month={songs[1].month}
-                      // img={songs[1].img}
-                      song1={songs[1].song1}
-                      song2={songs[1].song2}
-                      song3={songs[1].song3}
-                      song4={songs[1].song4}
-                      song5={songs[1].song5}
-                    />
-                  </>
-                }
-              />
+                element={<ProfilePage />} />
+
             </Routes>
           </Container>
         </main>
         <Footer />
       </Router>
 
-      {/* <MusicPost /> */}
     </div>
   );
 }
