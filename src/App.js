@@ -13,11 +13,11 @@ import CommentList from "./Components/CommentList";
 // import Song from "./Components/Song.js";
 import HomePage from "./Pages/HomePage";
 // import { Register } from "./Forms/Register.jsx";
-// import axios from "axios";
+// import axios from "axios"; 
 
 // const baseUrl = "https://songiefest-be.herokuapp.com";
 
-// // helper functions: convert API data to Json
+// helper functions: convert API data to Json
 // const convertMusicPostFromApi = (apiMusicPost) => {
 //   const { id, username, date_published, likes_count } = apiMusicPost;
 //   const newMusicPost = { id, username, datePublished, likesCount };
