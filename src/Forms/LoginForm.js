@@ -70,6 +70,8 @@ function LoginForm() {
       .catch((error) => {
         console.log("Error status", error.response.status);
         console.log("Error data", error.response.data);
+        const errorContainer = document.getElementById('loginError');
+        errorContainer.innerHTML = error.response.data['response']
       });
   }
 
@@ -102,7 +104,8 @@ function LoginForm() {
             onChange={handleChange}
           ></Form.Control>
         </Form.Group>
-
+        <label id='loginError'> </label>
+        <br></br>
         <Button type="submit" variant="primary" onClick={loginApi}>
           Sign In
         </Button>
