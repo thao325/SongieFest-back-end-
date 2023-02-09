@@ -1,14 +1,25 @@
-import React from "react";
+// import React, { useState, useEfect, useEffect } from "react";
 
-function ExplorePage() {
-  return (
-    <div>
-      <h1 className="heading">Latest Music Posts</h1>
-    </div>
-  );
-}
+// const ExplorePage = () => {
+//   const [songs, setSongs] = useState([]);
 
-export default ExplorePage;
+//   useEffect(() => {
+//     async function fetchData() {
+//       const response = await fetch
+//     }
+//   })
+
+// }
+
+// function ExplorePage() {
+//   return (
+//     <div>
+//       <h1 className="heading">Latest Music Posts</h1>
+//     </div>
+//   );
+// }
+
+// export default ExplorePage;
 
 // import React, { useEffect, useState, Component } from "react";
 // import axios from "axios";
