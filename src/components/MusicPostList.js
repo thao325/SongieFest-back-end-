@@ -1,5 +1,5 @@
 import React from "react";
-import "../style-sheets/MusicPost.css";
+import "../style-sheets/MusicPostList.css";
 
 // takes 4 props as args
 // returns template for rendering 1 single music post
@@ -14,7 +14,7 @@ function MusicPostList({ username, date, likes_count, songs }) {
       <div className="music-post-header">
         <h2 className="music-post-username">{username}</h2>
         <p className="music-post-date">{date}</p>
-        <p className="music-post-likes-count">{likes_count} likes</p>
+        
       </div>
       <div className="music-post-songs">
         {/* map over song array (takes a single song) & 
@@ -23,14 +23,15 @@ function MusicPostList({ username, date, likes_count, songs }) {
           // container for each song in a post
           // key = unique identifier 
           <div className="music-post-song" key={song.title}>
-            <p className="music-post-song-artist">{song.artist}</p>
-            <p className="music-post-song-title">{song.title}</p>
+            {/* <p className="music-post-song-artist">{song.artist}</p> */}
+            <p className="music-post-song-title">{song.title} by {song.artist}</p>
             <p className="music-post-song-play-count">
               {song.play_count} plays
             </p>
           </div>
         ))}
       </div>
+      <p className="music-post-likes-count">{likes_count} likes</p>
     </div>
   );
 } 

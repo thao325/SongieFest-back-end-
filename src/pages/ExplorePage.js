@@ -1,11 +1,11 @@
 import React from 'react';
-import MusicPost from "../Components/MusicPostList"
+import MusicPostList from "../Components/MusicPostList"
 
 const ExplorePage = ({ musicPosts }) => {
   return (
     <div className="music-posts-container">
       {Object.entries(musicPosts).map(([username, post]) => (
-        <MusicPost
+        <MusicPostList
           key={username}
           username={username}
           date={post[0].date}
