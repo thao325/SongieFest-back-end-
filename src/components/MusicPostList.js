@@ -33,8 +33,8 @@ function MusicPostList({ username, date, likes_count, songs }) {
       </div>
     </div>
   );
-}
-// <hr/> horizontal separator
+} 
+
 
 export default MusicPostList;
 
