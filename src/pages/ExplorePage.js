@@ -1,51 +1,23 @@
-// import React, { useState, useEfect, useEffect } from "react";
+import React from 'react';
+import MusicPost from "../Components/MusicPost"
 
-// const ExplorePage = () => {
-//   const [songs, setSongs] = useState([]);
+const ExplorePage = ({ musicPosts }) => {
+  return (
+    <div className="music-posts-container">
+      {Object.entries(musicPosts).map(([username, post]) => (
+        <MusicPost
+          key={username}
+          username={username}
+          date={post[0].date}
+          likes_count={post[0].likes_count}
+          songs={post[0].songs} 
+        />
+      ))}
+    </div>
+  );
+};
 
-//   useEffect(() => {
-//     async function fetchData() {
-//       const response = await fetch
-//     }
-//   })
-
-// }
-
-// function ExplorePage() {
-//   return (
-//     <div>
-//       <h1 className="heading">Latest Music Posts</h1>
-//     </div>
-//   );
-// }
-
-// export default ExplorePage;
-
-// import React, { useEffect, useState, Component } from "react";
-// import axios from "axios";
-
-// function ExplorePage() {
-//   const [state, setState] = useState([]);
-
-//   const baseUrl = "https://songiefest-be.herokuapp.com/";
-
-//   useEffect(() => {
-//     axios
-//       .get(`${baseUrl}explore/`)
-//       .then((response) => {
-//         console.log("music posts data", response.data);
-//         setState(response.data);
-//         console.log("State", state);
-//       })
-//       .catch((error) => {
-//         console.log("status code", error.response.status);
-//         console.log("error data", error.response.data);
-//       });
-//   }, []);
-
-//   return(
-//   <div>
-//     {state.map((musicPost) => {
+export default ExplorePage;
 
 //   return(
 
@@ -67,4 +39,4 @@
 //   );
 // }
 
-// export default ExplorePage;
+

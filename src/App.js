@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 // // import "./App.css";
-// import { Container } from "react-bootstrap";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Footer from "./Components/Footer";
-// import ExplorePage from "./Pages/ExplorePage";
+import { Container } from "react-bootstrap";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Footer from "./Components/Footer";
+import ExplorePage from "./Pages/ExplorePage";
 // import ProfilePage from "./Pages/ProfilePage";
-// import LoginForm from "./Forms/LoginForm";
-// import Header from "./Components/Header.js";
+import LoginForm from "./Forms/LoginForm";
+import Header from "./Components/Header.js";
 // import CommentForm from "./Forms/CommentForm";
 // import CommentList from "./Components/CommentList";
-import MusicPost from "./Components/MusicPost.js";
+// import MusicPost from "./Components/MusicPost.js";
 // import Song from "./Components/Song.js";
-// import HomePage from "./Pages/HomePage";
-// import { Register } from "./Forms/Register.jsx";
+import HomePage from "./Pages/HomePage";
+import { Register } from "./Forms/Register.jsx";
 import axios from "axios"; 
 
 
@@ -56,29 +56,57 @@ useEffect(() => {
 //   explorePostsApi();
 // }, []);
 
-
-    return (
-      // renders data returned from API call & stored in musicPosts state
-      <div className="music-posts-container">
-        {console.log("musicPosts:", musicPosts)}
-        {Object.entries(musicPosts).map(([username, post]) => {
-          console.log("username:", username);
-          console.log("post:", post);
-          return (
-            <MusicPost
-              key={username}
-              username={username}
-              date={post[0].date}
-              likes_count={post[0].likes_count}
-              songs={post[0].songs}
-            />
-          );
-        })}
-      </div>
-    );
-      }
+return (
+  <div>
+    <Router>
+      <Header />
+      <main className="py-3">
+        <Container>
+          <Routes>
+            <Route path="/" element={<HomePage />} exact />
+            <Route path="/explore" element={<ExplorePage musicPosts={musicPosts} />} exact />
+            <Route path="/login" element={<LoginForm />} exact />
+            <Route path="/register" element={<Register />} exact />
+            {/* <Route path="/:username" element={<ProfilePage />} /> */}
+          </Routes>
+        </Container>
+      </main>
+      <Footer />
+    </Router>
+  </div>
+);
+}
 
 export default App;
+
+      
+    
+
+
+            
+
+      
+      // renders data returned from API call & stored in musicPosts state
+    //   <div className="music-posts-container">
+    //     {console.log("musicPosts:", musicPosts)}
+    //     {Object.entries(musicPosts).map(([username, post]) => {
+    //       console.log("username:", username);
+    //       console.log("post:", post);
+    //       return (
+    //         <MusicPost
+    //           key={username}
+    //           username={username}
+    //           date={post[0].date}
+    //           likes_count={post[0].likes_count}
+    //           songs={post[0].songs}
+    //         />
+    //       );
+    //     })}
+    //   </div>
+    // );
+    //   }
+
+
 
 
         
@@ -157,25 +185,3 @@ export default App;
       //     ))} */}
        //   </ul> */}
       // </div> */}
-
-      // <Router>
-//         <Header />
-//         <main className="py-3">
-//           <Container>
-//             {/* <h1>SongieFest</h1> */}
-//             <Routes>
-//               <Route path="/" element={<HomePage />} exact />
-//               <Route path="/explore" element={<ExplorePage exploreData={exploreData} />} exact />   
-//               <Route path="/login" element={<LoginForm />} exact />
-//               {/* <Route path="/musicpost/:id" element={<MusicPostPage />} /> */}
-//               <Route path="/register" element={<Register />} exact />
-//               <Route path="/<str:username>" element={<ProfilePage />} />
-//             </Routes>
-//           </Container>
-//         </main>
-//         <Footer />
-//       </Router>
-//     </div>
-//   );
-// }
-
