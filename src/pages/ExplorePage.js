@@ -1,5 +1,5 @@
 import React from 'react';
-import MusicPost from "../Components/MusicPost"
+import MusicPost from "../Components/MusicPostList"
 
 const ExplorePage = ({ musicPosts }) => {
   return (

@@ -51,11 +51,6 @@ useEffect(() => {
 
 
 
-
-// useEffect(() => {
-//   explorePostsApi();
-// }, []);
-
 return (
   <div>
     <Router>
