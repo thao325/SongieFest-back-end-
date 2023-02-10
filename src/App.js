@@ -20,6 +20,7 @@ const baseUrl = "https://songiefest-be.herokuapp.com";
 function App() {
   // store data of music posts API call in state
   const [musicPosts, setMusicPosts] = useState({});
+  const [selectedMusicPost, setSelectedMusicPost] = useState(null);
 
   // get all music posts/Explore Page
   useEffect(() => {
@@ -45,6 +46,39 @@ function App() {
     };
     getMusicPosts();
   }, []);
+
+ // get all comments for a music post 
+  useEffect(() => {
+    const getComments = async () => {
+    if (!selectedMusicPost) {
+      return;
+    }
+
+      const cookieValue = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("token="))
+        ?.split("=")[1];
+      const token = "Token " + cookieValue;
+      try {
+        const response = await axios.get(
+          `${baseUrl}/music_post/${selectedMusicPost}/comments/`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `${token}`,
+            },
+          }
+        );
+        setComments(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getComments();
+  }, [selectedMusicPost]);
+
+
+
 
   return (
     <div>
