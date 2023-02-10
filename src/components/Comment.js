@@ -14,3 +14,6 @@ function Comment({ username, text, date }) {
 }
 
 export default Comment;
+
+
+

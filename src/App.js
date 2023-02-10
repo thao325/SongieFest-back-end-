@@ -7,9 +7,9 @@ import ExplorePage from "./Pages/ExplorePage";
 // import ProfilePage from "./Pages/ProfilePage";
 import LoginForm from "./Forms/LoginForm";
 import NavBar from "./Components/NavBar.js";
-// import CommentForm from "./Forms/CommentForm";
+import CommentForm from "./Forms/CommentForm";
 // import CommentList from "./Components/CommentList";
-import MusicPostPage from "./Components/MusicPost.js";
+// import MusicPostPage from "./Components/MusicPost.js";
 // import Song from "./Components/Song.js";
 import HomePage from "./Pages/HomePage";
 import { Register } from "./Forms/Register.jsx";
@@ -61,8 +61,8 @@ function App() {
               />
               <Route path="/login" element={<LoginForm />} exact />
               <Route path="/register" element={<Register />} exact />
-              <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} />
-              {/* <Route path="/:username" element={<ProfilePage />} /> */}
+              {/* <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} /> */}
+              <Route path="/username" element={<CommentForm />} />
             </Routes>
           </Container>
         </main>
@@ -74,25 +74,7 @@ function App() {
 
 export default App;
 
-// renders data returned from API call & stored in musicPosts state
-//   <div className="music-posts-container">
-//     {console.log("musicPosts:", musicPosts)}
-//     {Object.entries(musicPosts).map(([username, post]) => {
-//       console.log("username:", username);
-//       console.log("post:", post);
-//       return (
-//         <MusicPost
-//           key={username}
-//           username={username}
-//           date={post[0].date}
-//           likes_count={post[0].likes_count}
-//           songs={post[0].songs}
-//         />
-//       );
-//     })}
-//   </div>
-// );
-//   }
+
 
 //* takes `musicPosts` object (state in app, holds response data) & converts
 // it's properties into an array of arrays */}
@@ -118,14 +100,6 @@ export default App;
 // );
 // }
 
-// const [exploreData, setExploreData] = useState([]);
-
-// const getExplorePosts = async () => {
-//   const explorePosts = await explorePostsApi();
-//   setExploreData(explorePosts);
-// };
-
-//     return response.data.map(API);
 
 /////////// comments stuff           ///////////////////
 

@@ -1,35 +1,91 @@
 import React, { useState } from "react";
+import { Form, Row, Button } from "react-bootstrap";
+import FormContainer from "../Components/FormContainer";
+
 
 // make a comment
-function CommentForm({ id, handleSubmit }) {
+function CommentForm({ musicPostId, addComment }) {
+  const [author, setAuthor] = useState("");
   const [comment, setComment] = useState("");
 
-  const handleChange = (event) => {
-    setComment(event.target.value);
-  };
+  // const handleChange = (event) => {
+  //   setComment(event.target.value);
+  // };
 
-  const handleSubmitClick = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    handleSubmit(id, comment);
+    addComment(musicPostId, {author, comment });
     setComment("");
+    setAuthor("");
   };
 
-  return (
-    <form className="comment-form">
-      <textarea
-        className="comment-input"
-        value={comment}
-        onChange={handleChange}
-        placeholder="Write a comment..."
-      ></textarea>
-      <button className="submit-comment-button" onClick={handleSubmitClick}>
-        Submit
-      </button>
-    </form>
-  );
+//   return (
+    
+//     <form className="comment-form">
+//       <input
+//       type="text"
+//       placeholder="your name"
+//       value={author}
+//       onChange={event => setAuthor(event.target.value)}
+//       />
+//       <textarea
+//         className="comment-input"
+//         value={comment}
+//         onChange={event => setComment(event.target.value)}
+//         placeholder="Write a comment..."
+//       ></textarea>
+//       <button className="submit-comment-button" onClick={handleSubmit}>
+//         Submit
+//       </button>
+//     </form>
+//   );
+// }
+
+// export default CommentForm;
+
+
+
+
+
+return (
+  <FormContainer>
+    <Row>
+    <h1>Leave a Comment.. </h1>
+
+    <Form>
+      <Form.Group controlId="username">
+        <Form.Label>Username</Form.Label>
+        <Form.Control
+
+          type="text"
+          placeholder="Enter Username"
+          value={author}
+          onChange={event => setAuthor(event.target.value)}
+        ></Form.Control>
+      </Form.Group>
+
+      <Form.Group controlId="password">
+        <Form.Label>Comment</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Leave a comment.. "
+          autoComplete="off"
+          value={comment}
+          onChange={event => setComment(event.target.value)}
+        ></Form.Control>
+      </Form.Group>
+
+    </Form>
+
+    </Row>
+    <Button type="submit" variant="primary" onClick={handleSubmit}>Comment</Button>
+  </FormContainer>
+);
 }
 
 export default CommentForm;
+
+
 
 // function CommentForm(props) {
 //   const [inputText, setInputText] = useState("");
