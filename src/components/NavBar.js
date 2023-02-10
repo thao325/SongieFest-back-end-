@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-function Header() {
+function NavBar() {
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
@@ -36,4 +36,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default NavBar;
