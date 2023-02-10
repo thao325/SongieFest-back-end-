@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import "../style-sheets/MusicPost.css";
 import Song from "./Song";
+import CommentViewButton from "./CommentViewButton";
 
 function MusicPost({ id, username, date, likes_count, songs }) {
   // handle click music post to navigate to specific post
@@ -26,14 +27,25 @@ function MusicPost({ id, username, date, likes_count, songs }) {
   }
 
   return (
-    // <Link to={`/musicpost/${id}`}>
 
     <div className="music-post-container" onClick={handleClick}>
       <div className="music-post">
         <h2 className="music-post-username"> {username}</h2>
         <p>{date}</p>
         {songList}
-        <p className="music-post-likes-count">♡ {likes_count} likes </p>
+
+        <div className='bottom-of-post'>
+          <h5 >♡ {likes_count} likes </h5>
+          <CommentViewButton></CommentViewButton>
+          {/* <h3 className='heart-button'>♡</h3>
+          <p className="music-post-likes-count"> {likes_count} likes </p>
+          <CommentViewButton className='comment-bar'></CommentViewButton> */}
+          {/* <div classname='comment-bar'>
+            <CommentViewButton></CommentViewButton>
+          </div> */}
+      
+        </div>
+    
       </div>
     </div>
   );

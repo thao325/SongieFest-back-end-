@@ -6,7 +6,7 @@ function CommentViewButton ({musicPostId}) {
 
   return(
     <div className='button'>
-      <p> View 8 Comments</p>
+      <p className="text"> View 8 Comments</p>
       {musicPostId}
     </div>
     

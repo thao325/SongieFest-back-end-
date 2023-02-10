@@ -2,7 +2,7 @@
 import "../style-sheets/MusicPostList.css";
 
 import MusicPost from './MusicPost'
-import CommentViewButton from './CommentViewButton'
+// import CommentViewButton from './CommentViewButton'
 
 
 function MusicPostList({ musicPosts }) {
@@ -18,26 +18,20 @@ function MusicPostList({ musicPosts }) {
       date={username[1][0].date}
       likes_count={username[1][0].likes_count}
       songs={username[1][0].songs}/>
-    // </div>
-
-
-    // console.log(post[0])
-    
-
-  
+      
   ))
 
 
-  const postsWithComments = [];
-  for (const post of posts){
-    postsWithComments.push(post)
-    postsWithComments.push(<CommentViewButton key={post.props.id} musicPostId={post.id}></CommentViewButton>)
+  // const postsWithComments = [];
+  // for (const post of posts){
+  //   postsWithComments.push(post)
+  //   postsWithComments.push(<CommentViewButton key={post.props.id} musicPostId={post.id}></CommentViewButton>)
 
-  }
+  // }
 
   return (
     <div className="music-posts-container">
-      {postsWithComments}
+      {posts}
 
 
     </div>

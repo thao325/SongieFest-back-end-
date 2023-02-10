@@ -1,14 +1,22 @@
-.button{
+/* .button{
     display:flex;
     border:3em;
     
     
 
-}
+} */
 
-div .button{
+ div .button{
+    display: flex;
     background-color: plum ;
-    opacity: .7;
     border-color: gray;
-
+    vertical-align: center;
+    margin: 5%;
+    display: table-cell; 
+    vertical-align: middle;
 }
+/* 
+.text{
+    
+
+} */
