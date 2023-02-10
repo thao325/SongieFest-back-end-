@@ -40,7 +40,7 @@ useEffect(() => {
                     }
                     )
     setMusicPosts(response.data);
-      console.log("explore page data from API", response.data);
+      // console.log("explore page data from API", response.data);
       ;
     } catch (error) {
       console.error(error);

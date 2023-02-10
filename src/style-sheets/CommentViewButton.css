@@ -1,0 +1,14 @@
+.button{
+    display:flex;
+    border:3em;
+    
+    
+
+}
+
+div .button{
+    background-color: plum ;
+    opacity: .7;
+    border-color: gray;
+
+}

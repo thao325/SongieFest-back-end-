@@ -2,7 +2,7 @@ import React from "react";
 
 // view ALL comments on 1 music post
 
-
+//bianca: idk what this is gonna be for yet
 function CommentList(props) {
   return (
     <div
