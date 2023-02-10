@@ -27,7 +27,7 @@ function NavBar() {
               <Nav.Link href="/register">Register</Nav.Link>
               <Nav.Link href="/login">Login</Nav.Link>
               <Nav.Link href="/explore">Explore</Nav.Link>
-              <Nav.Link href="/<str:username>">Profile</Nav.Link>
+              <Nav.Link href="/username">Profile</Nav.Link>
               {/* </LinkContainer> */}
             </Nav>
           </Navbar.Collapse>

@@ -9,7 +9,7 @@ import LoginForm from "./Forms/LoginForm";
 import NavBar from "./Components/NavBar.js";
 // import CommentForm from "./Forms/CommentForm";
 // import CommentList from "./Components/CommentList";
-// import MusicPost from "./Components/MusicPost.js";
+import MusicPostPage from "./Components/MusicPost.js";
 // import Song from "./Components/Song.js";
 import HomePage from "./Pages/HomePage";
 import { Register } from "./Forms/Register.jsx";
@@ -61,7 +61,7 @@ function App() {
               />
               <Route path="/login" element={<LoginForm />} exact />
               <Route path="/register" element={<Register />} exact />
-              
+              <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} />
               {/* <Route path="/:username" element={<ProfilePage />} /> */}
             </Routes>
           </Container>
