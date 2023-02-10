@@ -7,7 +7,7 @@ import ExplorePage from "./Pages/ExplorePage";
 // import ProfilePage from "./Pages/ProfilePage";
 import LoginForm from "./Forms/LoginForm";
 import NavBar from "./Components/NavBar.js";
-import CommentForm from "./Forms/CommentForm";
+// import CommentForm from "./Forms/CommentForm";
 // import CommentList from "./Components/CommentList";
 // import MusicPostPage from "./Components/MusicPost.js";
 // import Song from "./Components/Song.js";
@@ -20,6 +20,8 @@ const baseUrl = "https://songiefest-be.herokuapp.com";
 function App() {
   // store data of music posts API call in state
   const [musicPosts, setMusicPosts] = useState({});
+  const [comments, setComments] = useState([]);
+  const [selectedMusicPost, setSelectedMusicPost] = useState(null);
 
   // get all music posts/Explore Page
   useEffect(() => {
@@ -46,6 +48,73 @@ function App() {
     getMusicPosts();
   }, []);
 
+  // runs function every time a component is rendered
+  // checks if selectedMusicPost = truthy (when user clicks on a specific post)
+  // if false do nothing
+  useEffect(() => {
+    // get all comments for a music post
+    // pass in selectedMusicPost?
+    const getComments = async () => {
+    if (!selectedMusicPost) {
+      return;
+    }
+
+      const cookieValue = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("token="))
+        ?.split("=")[1];
+      const token = "Token " + cookieValue;
+      try {
+        const response = await axios.get(
+          `${baseUrl}/music_post/${selectedMusicPost}/comments/`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `${token}`,
+            },
+          }
+        );
+        setComments(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getComments();
+  }, [selectedMusicPost]);
+
+  // post a comment on selected music post
+  // const postComment = async (comment) => {
+  //   if (!selectedMusicPost) {
+  //     return;
+  //   }
+  
+  //     const cookieValue = document.cookie
+  //       .split("; ")
+  //       .find((row) => row.startsWith("token="))
+  //       ?.split("=")[1];
+  //     const token = "Token " + cookieValue;
+  
+  //     try {
+  //       const response = await axios.post(
+  //         `${baseUrl}/musicposts/${selectedMusicPost}/comments/`,
+  //         {
+  //           text: comment,
+  //         },
+  //         {
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             Authorization: `${token}`,
+  //           },
+  //         }
+  //       );
+  //       setComments((prevComments) => [...prevComments, response.data]);
+  //       console.log("Comment Post response", response.data);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+  
+    
   return (
     <div>
       <Router>
@@ -56,13 +125,14 @@ function App() {
               <Route path="/" element={<HomePage />} exact />
               <Route
                 path="/explore"
-                element={<ExplorePage musicPosts={musicPosts} />}
+                element={<ExplorePage musicPosts={musicPosts} comments={comments} />}
                 exact
               />
               <Route path="/login" element={<LoginForm />} exact />
               <Route path="/register" element={<Register />} exact />
               {/* <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} /> */}
-              <Route path="/username" element={<CommentForm />} />
+              {/* <Route path="/username" element={<CommentForm />} /> */}
+              {/* <Route path="/musicpost" element={<CommentList comments={comments} />} /> */}
             </Routes>
           </Container>
         </main>
@@ -73,8 +143,6 @@ function App() {
 }
 
 export default App;
-
-
 
 //* takes `musicPosts` object (state in app, holds response data) & converts
 // it's properties into an array of arrays */}
@@ -99,7 +167,6 @@ export default App;
 // </div>
 // );
 // }
-
 
 /////////// comments stuff           ///////////////////
 

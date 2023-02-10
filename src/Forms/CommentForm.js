@@ -3,10 +3,11 @@ import { Form, Row, Button } from "react-bootstrap";
 import FormContainer from "../Components/FormContainer";
 
 
-// make a comment
+// make a comment, send POST request to backend on submit 
 function CommentForm({ musicPostId, addComment }) {
   const [author, setAuthor] = useState("");
-  const [comment, setComment] = useState("");
+  const [text, setText] = useState("")
+
 
   // const handleChange = (event) => {
   //   setComment(event.target.value);
@@ -14,8 +15,8 @@ function CommentForm({ musicPostId, addComment }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addComment(musicPostId, {author, comment });
-    setComment("");
+    addComment(musicPostId, { author, text });
+    setText("");
     setAuthor("");
   };
 
@@ -70,8 +71,8 @@ return (
           type="text"
           placeholder="Leave a comment.. "
           autoComplete="off"
-          value={comment}
-          onChange={event => setComment(event.target.value)}
+          value={text}
+          onChange={event => setText(event.target.value)}
         ></Form.Control>
       </Form.Group>
 

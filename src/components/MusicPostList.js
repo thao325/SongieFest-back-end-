@@ -5,7 +5,7 @@ import MusicPost from './MusicPost'
 import CommentViewButton from './CommentViewButton'
 
 
-function MusicPostList({ musicPosts }) {
+function MusicPostList({ musicPosts, comments }) {
   // for (const musicPost of musicPosts) { 
   //   console.log(musicPost); }
   const posts = Object.entries(musicPosts).map((username, post) => (

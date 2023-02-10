@@ -28,6 +28,7 @@ function NavBar() {
               <Nav.Link href="/login">Login</Nav.Link>
               <Nav.Link href="/explore">Explore</Nav.Link>
               <Nav.Link href="/username">Profile</Nav.Link>
+              <Nav.Link href="musicpost">Music Post</Nav.Link>
               {/* </LinkContainer> */}
             </Nav>
           </Navbar.Collapse>

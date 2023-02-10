@@ -1,10 +1,10 @@
 import React from 'react';
 import MusicPostList from "../Components/MusicPostList"
 
-const ExplorePage = ({ musicPosts }) => {
+const ExplorePage = ({ musicPosts, comments }) => {
 // console.log(musicPosts);
   return (
-    <MusicPostList musicPosts={musicPosts}></MusicPostList>
+    <MusicPostList musicPosts={musicPosts} comments={comments}></MusicPostList>
     
   );
 };
