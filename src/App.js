@@ -61,6 +61,7 @@ function App() {
               />
               <Route path="/login" element={<LoginForm />} exact />
               <Route path="/register" element={<Register />} exact />
+              
               {/* <Route path="/:username" element={<ProfilePage />} /> */}
             </Routes>
           </Container>
