@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import CommentList from "../Components/CommentList"
 import axios from "axios";
 import Comment from '../Components/Comment'
+import CommentForm from "../Forms/CommentForm";
 
 const baseUrl = "https://songiefest-be.herokuapp.com";
 
@@ -66,6 +67,8 @@ const MusicPostPage = () => {
     <div>
       <CommentList musicPostId={id} commentList={commentList}></CommentList>
     </div>
+    <CommentForm/>
+    
     </div>
   );
 };

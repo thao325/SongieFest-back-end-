@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../style-sheets/Comment.css";
-// import CommentForm from "../Forms/CommentForm";
 
 //// GET USERNAME ASSOCIATED W A SPECIFIC COMMENT ID
 
@@ -48,7 +47,6 @@ function Comment({ id, text }) {
       <div className="comment-box">
         <b className="comment-username">{commentUsername}: </b>
         {text}
-        {/* <CommentForm /> */}
       </div>
     </div>
   );
