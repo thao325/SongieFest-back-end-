@@ -59,8 +59,8 @@ function CommentList({commentList, musicPostId}) {
     
       {commentList}
       
-      <textarea type="text" className="input" placeholder="Write a comment" ></textarea>
-      <button  type="submit">Add Comment</button>
+      {/* <textarea type="text" className="input" placeholder="Write a comment" ></textarea>
+      <button  type="submit">Add Comment</button> */}
     </div>
   );
 }

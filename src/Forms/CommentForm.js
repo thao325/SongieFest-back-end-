@@ -45,12 +45,13 @@ function CommentForm() {
   return (
     <form onSubmit={handleSubmit}>
       <textarea
+        type="text"
         value={makeComment}
         onChange={(event) => setMakeComment(event.target.value)}
-        className="comment-textarea"
-        placeholder="Write a comment..."
+        className="input"
+        placeholder="Write a comment"
       />
-      <button className="submit-button" type="submit">
+      <button className="submit" type="submit">
         Submit
       </button>
     </form>
