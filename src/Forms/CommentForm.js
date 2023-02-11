@@ -1,83 +1,102 @@
-import React, { useState } from "react";
-import { Form, Row, Button } from "react-bootstrap";
-import FormContainer from "../Components/FormContainer";
+// import { useState } from "react";
+// import { useParams } from "react-router-dom";
+// // import { Form, Row, Button } from "react-bootstrap";
+// // import FormContainer from "../Components/FormContainer";
+// import axios from "axios";
 
-// make a comment, send POST request to backend on submit
-function CommentForm({ musicPostId, addComment }) {
-  const [author, setAuthor] = useState("");
-  const [text, setText] = useState("");
+// //////     STILL IN WORKKK      \\\\\\\\\\\\\
+// // make a comment, send POST request to backend on submit
+// // musicpost/<music_post id>/comments/
+// const baseUrl = "https://songiefest-be.herokuapp.com";
 
-  // const handleChange = (event) => {
-  //   setComment(event.target.value);
-  // };
+// function CommentForm() {
+//   const [makeComment, setMakeComment] = useState("");
+//   const { id } = useParams();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    addComment(musicPostId, { author, text });
-    setText("");
-    setAuthor("");
-  };
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
 
-  //   return (
+//     const cookieValue = document.cookie
+//       .split("; ")
+//       .find((row) => row.startsWith("token="))
+//       ?.split("=")[1];
+//     const token = "Token " + cookieValue;
 
-  //     <form className="comment-form">
-  //       <input
-  //       type="text"
-  //       placeholder="your name"
-  //       value={author}
-  //       onChange={event => setAuthor(event.target.value)}
-  //       />
-  //       <textarea
-  //         className="comment-input"
-  //         value={comment}
-  //         onChange={event => setComment(event.target.value)}
-  //         placeholder="Write a comment..."
-  //       ></textarea>
-  //       <button className="submit-comment-button" onClick={handleSubmit}>
-  //         Submit
-  //       </button>
-  //     </form>
-  //   );
-  // }
+//     try {
+//       const response = await axios.post(
+//         `${baseUrl}/music_post/${id}/comments/`,
+//         {
+//           text: makeComment,
+//         },
+//         {
+//           headers: {
+//             "Content-Type": "application/json",
+//             Authorization: `${token}`,
+//           },
+//         }
+//       );
 
-  // export default CommentForm;
+//       console.log(response);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
 
-  return (
-    <FormContainer>
-      <Row>
-        <h1>Leave a Comment.. </h1>
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       <textarea
+//         value={makeComment}
+//         onChange={(event) => setMakeComment(event.target.value)}
+//         className="comment-textarea"
+//         placeholder="Write a comment..."
+//       />
+//       <button className="submit-button" type="submit">
+//         Submit
+//       </button>
+//     </form>
+//   );
+// }
 
-        <Form>
-          <Form.Group controlId="username">
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter Username"
-              value={author}
-              onChange={(event) => setAuthor(event.target.value)}
-            ></Form.Control>
-          </Form.Group>
+// export default CommentForm;
 
-          <Form.Group controlId="password">
-            <Form.Label>Comment</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Leave a comment.. "
-              autoComplete="off"
-              value={text}
-              onChange={(event) => setText(event.target.value)}
-            ></Form.Control>
-          </Form.Group>
-        </Form>
-      </Row>
-      <Button type="submit" variant="primary" onClick={handleSubmit}>
-        Comment
-      </Button>
-    </FormContainer>
-  );
-}
+//   return (
+//     <FormContainer>
+//       <Row>
+//         <h1>Leave a Comment.. </h1>
 
-export default CommentForm;
+//         <Form>
+//           <Form.Group controlId="username">
+//             <Form.Label>Username</Form.Label>
+//             <Form.Control
+//               type="text"
+//               placeholder="Enter Username"
+//               value={author}
+//               onChange={(event) => setAuthor(event.target.value)}
+//             ></Form.Control>
+//           </Form.Group>
+
+//           <Form.Group controlId="password">
+//             <Form.Label>Comment</Form.Label>
+//             <Form.Control
+//               type="text"
+//               placeholder="Leave a comment.. "
+//               autoComplete="off"
+//               value={text}
+//               onChange={(event) => setText(event.target.value)}
+//             ></Form.Control>
+//           </Form.Group>
+//         </Form>
+//       </Row>
+//       <Button type="submit" variant="primary" onClick={handleSubmit}>
+//         Comment
+//       </Button>
+//     </FormContainer>
+//   );
+// }
+
+// export default CommentForm;
+
+//////////////////
 
 // function CommentForm(props) {
 //   const [inputText, setInputText] = useState("");
