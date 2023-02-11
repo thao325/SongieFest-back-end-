@@ -1,6 +1,7 @@
 import React from "react";
 
-// view ALL comments on 1 music post
+// view ALL comments on 1 music post + the single music post
+// ask thao about onChecked
 
 //bianca: idk what this is gonna be for yet
 function CommentList(props) {
