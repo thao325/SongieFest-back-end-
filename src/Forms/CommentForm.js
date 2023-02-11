@@ -1,63 +1,63 @@
-// import { useState } from "react";
-// import { useParams } from "react-router-dom";
-// // import { Form, Row, Button } from "react-bootstrap";
-// // import FormContainer from "../Components/FormContainer";
-// import axios from "axios";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+// import { Form, Row, Button } from "react-bootstrap";
+// import FormContainer from "../Components/FormContainer";
+import axios from "axios";
 
-// //////     STILL IN WORKKK      \\\\\\\\\\\\\
-// // make a comment, send POST request to backend on submit
-// // musicpost/<music_post id>/comments/
-// const baseUrl = "https://songiefest-be.herokuapp.com";
+//////     STILL IN WORKKK      \\\\\\\\\\\\\
+// make a comment, send POST request to backend on submit
+// musicpost/<music_post id>/comments/
+const baseUrl = "https://songiefest-be.herokuapp.com";
 
-// function CommentForm() {
-//   const [makeComment, setMakeComment] = useState("");
-//   const { id } = useParams();
+function CommentForm() {
+  const [makeComment, setMakeComment] = useState("");
+  const { id } = useParams();
 
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-//     const cookieValue = document.cookie
-//       .split("; ")
-//       .find((row) => row.startsWith("token="))
-//       ?.split("=")[1];
-//     const token = "Token " + cookieValue;
+    const cookieValue = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("token="))
+      ?.split("=")[1];
+    const token = "Token " + cookieValue;
 
-//     try {
-//       const response = await axios.post(
-//         `${baseUrl}/music_post/${id}/comments/`,
-//         {
-//           text: makeComment,
-//         },
-//         {
-//           headers: {
-//             "Content-Type": "application/json",
-//             Authorization: `${token}`,
-//           },
-//         }
-//       );
+    try {
+      const response = await axios.post(
+        `${baseUrl}/music_post/${id}/comments/`,
+        {
+          text: makeComment,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${token}`,
+          },
+        }
+      );
 
-//       console.log(response);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <textarea
-//         value={makeComment}
-//         onChange={(event) => setMakeComment(event.target.value)}
-//         className="comment-textarea"
-//         placeholder="Write a comment..."
-//       />
-//       <button className="submit-button" type="submit">
-//         Submit
-//       </button>
-//     </form>
-//   );
-// }
+  return (
+    <form onSubmit={handleSubmit}>
+      <textarea
+        value={makeComment}
+        onChange={(event) => setMakeComment(event.target.value)}
+        className="comment-textarea"
+        placeholder="Write a comment..."
+      />
+      <button className="submit-button" type="submit">
+        Submit
+      </button>
+    </form>
+  );
+}
 
-// export default CommentForm;
+export default CommentForm;
 
 //   return (
 //     <FormContainer>
