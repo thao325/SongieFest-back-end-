@@ -8,6 +8,7 @@ const baseUrl = "https://songiefest-be.herokuapp.com";
 //bianca: idk what this is gonna be for yet
 function CommentList({commentList, musicPostId}) {
   const [musicPostData, setMusicPostData] = useState({});
+  // const [musicPostDetails, setMusicPostDetails] = useState(null);
 
   useEffect(() => {
     const getMusicPostData = async () => {
@@ -27,25 +28,35 @@ function CommentList({commentList, musicPostId}) {
             },
           }
         );
-
-        // if API call success, use setter function to set `commentUsername`
-        // state w/ response data's `username` propery
- 
+        console.log(response.data.songs);
         setMusicPostData(response.data);
-        // setCommentUsername(response.data);
+        
+        
 
       } catch (error) {
         console.error(error);
       }
     };
-    getMusicPostData();
+    getMusicPostData()
   }, [musicPostId]);
-  console.log(musicPostData.songs);
+
+  // for (const [key, value] of Object.entries(musicPostData)) {
+  //   console.log(`${key}: ${value}`);
+  // }
+
+
+
+  // useEffect(() => {
+  //   const commentSection = document.getElementById('comment-section');
+  //   if (musicPostData) {
+  //     commentSection.scrollIntoView({ behavior: 'smooth' })
+  //   }}, [])
 
   return (
     <div>
-      
-      <MusicPost id={musicPostData.id} username={musicPostData.username} date={musicPostData.date} likes_count={musicPostData.likes_count} songs={musicPostData.songs}></MusicPost>
+
+      {/* <MusicPost id={musicPostData.id} username={musicPostData.username} date={musicPostData.date} likes_count={musicPostData.likes_count} songs={musicPostData.songs}></MusicPost> */}
+    
       {commentList}
       
       <textarea type="text" className="input" placeholder="Write a comment" ></textarea>
