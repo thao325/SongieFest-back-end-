@@ -42,7 +42,7 @@ function App() {
 
               {/* :id = pass in id of selected music post as param thats 
               being accessed in MusicPostPage via `useParams`   */}
-               <Route path="/logout" element={<LogoutPage />} />
+              <Route path="/logout" element={<LogoutPage />} />
               <Route path="/:username" element={<ProfilePage />} />
               <Route path="/musicpost/:id/comments" element={<MusicPostPage/>} exact />
                {/* <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} /> */}
@@ -51,7 +51,7 @@ function App() {
           </Container>
         </main>
         <Footer />
-      </Router>q
+      </Router>
     </div>
   );
 }

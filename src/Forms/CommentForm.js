@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 // import CommentList from "../Components/CommentList";
 import Comment from "../Components/Comment";
-import '../style-sheets/CommentForm.css'
+import "../style-sheets/CommentForm.css";
 
 //////     STILL IN WORKKK      \\\\\\\\\\\\\
 // make a comment, send POST request to backend on submit
@@ -51,28 +51,31 @@ function CommentForm() {
   };
 
   return (
-  <div class='container'>
-  <div>
-  <div id='new-comment'>
-    {showComments.map((showComment) => (
-      
-        <Comment key={showComment.id} text={showComment.text} id ={showComment.id}></Comment>   
-        ))}
-  </div>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          type="text"
-          value={makeComment}
-          onChange={(event) => setMakeComment(event.target.value)}
-          className="input"
-          placeholder="Write a comment"
-        />
-        
-        
-      </form>
-      <button className="submit" type="submit">Submit</button>
-  </div>
-  </div>
+    <div className="container">
+      <div>
+        <div id="new-comment">
+          {showComments.map((showComment) => (
+            <Comment
+              key={showComment.id}
+              text={showComment.text}
+              id={showComment.id}
+            ></Comment>
+          ))}
+        </div>
+        <form onSubmit={handleSubmit}>
+          <textarea
+            type="text"
+            value={makeComment}
+            onChange={(event) => setMakeComment(event.target.value)}
+            className="input"
+            placeholder="Write a comment"
+          />
+        </form>
+        <button className="submit" type="submit">
+          Submit
+        </button>
+      </div>
+    </div>
   );
 }
 
