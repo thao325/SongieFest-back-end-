@@ -1,28 +1,30 @@
 import React from "react";
 import Comment from "./Comment";
-import "./CommentList.css";
+// import "./CommentList.css";
 
 // view ALL comments on 1 music post
-/// THAO TESTING CODE 
+/// THAO TESTING CODE
 
 // gets array of comments as prop, renders a Comment component
 // for each comment
 function CommentList({ comments }) {
-  const commentItems = comments.map(comment => (
+  const commentItems = comments.map((comment) => (
     // Comment component recieves these props & displays them
     <Comment
       key={comment.id}
       text={comment.text}
-      // user who left comment 
+      // user who left comment
       username={comment.username}
       date={comment.date}
     />
   ));
 
   return (
-    <div className="comment-list">
-      <h3>Comments:</h3>
-      {commentItems}
+    <div className="comment-list-container">
+      <ul className="comment-list">
+        <h3>Comments:</h3>
+        {commentItems}
+      </ul>
     </div>
   );
 }

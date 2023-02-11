@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 // import MusicPostList from "../Components/MusicPostList"
 import axios from "axios";
+// import CommentBox from '../Components/CommentBox'; 
+import CommentList from '../Components/CommentList';
+
 
 const baseUrl = "https://songiefest-be.herokuapp.com";
 
@@ -51,11 +54,9 @@ const MusicPostPage = () => {
 
     /////////     NOT RENDERING COMMENTS YET   \\\\\\\\\\
     <div>
-      {comments.map((comment, index) => (
-        <div key={index}>
-          <p>{comment.content}</p>
-        </div>
-      ))}
+      
+    
+  {/* <CommentBox comments={comments} />  */}
     </div>
   );
 };
