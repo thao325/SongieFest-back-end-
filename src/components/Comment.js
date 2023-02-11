@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "../style-sheets/Comment.css";
 
 //// GET USERNAME ASSOCIATED W A SPECIFIC COMMENT ID
 
@@ -38,12 +39,16 @@ function Comment({ id, text }) {
     getCommentUsername();
   }, [id]);
 
+
   return (
-    <div>
-      <b>{commentUsername} </b>
-      {text}
+    <div className="comment-page">
+      <div className="comment-box">
+        <b className="comment-username">{commentUsername}: </b>
+        {text}
+      </div>
     </div>
   );
+
 }
 
 

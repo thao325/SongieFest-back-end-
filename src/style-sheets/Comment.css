@@ -1,0 +1,17 @@
+
+.comment-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comment-box {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px 0;
+    width: 50%;
+}
+
+.comment-username {
+    font-weight: bold;
+}

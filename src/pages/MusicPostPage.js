@@ -59,15 +59,12 @@ const MusicPostPage = () => {
   return (
     // {comments}
     // console.log('hi')
+    <div className="comment-page">
+      <h1>Comments</h1>
 
-/////////     NOT RENDERING COMMENTS YET   \\\\\\\\\\
     <div>
-      {/* {comments.map((comment, index) => (
-        <div key={index}>
-          <p>{comment.content}</p>
-        </div>
-      ))} */}
       {commentList}
+    </div>
     </div>
   );
 };
