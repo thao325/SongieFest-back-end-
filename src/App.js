@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// // import "./App.css";
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer";
@@ -9,19 +8,18 @@ import LoginForm from "./Forms/LoginForm";
 import NavBar from "./Components/NavBar.js";
 // import CommentForm from "./Forms/CommentForm";
 // import CommentList from "./Components/CommentList";
-// import MusicPostPage from "./Components/MusicPost.js";
+import MusicPostPage from "./Pages/MusicPostPage.js";
 // import Song from "./Components/Song.js";
 import HomePage from "./Pages/HomePage";
 import { Register } from "./Forms/Register.jsx";
 import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 
 const baseUrl = "https://songiefest-be.herokuapp.com";
 
 function App() {
   // store data of music posts API call in state
   const [musicPosts, setMusicPosts] = useState({});
-  const [comments, setComments] = useState([]);
-  const [selectedMusicPost, setSelectedMusicPost] = useState(null);
 
   // get all music posts/Explore Page
   useEffect(() => {
@@ -31,7 +29,7 @@ function App() {
         .find((row) => row.startsWith("token="))
         ?.split("=")[1];
       const token = "Token " + cookieValue;
-      // const token = document.cookie
+
       try {
         const response = await axios.get(`${baseUrl}/explore/`, {
           headers: {
@@ -40,7 +38,6 @@ function App() {
           },
         });
         setMusicPosts(response.data);
-        // console.log("explore page data from API", response.data);
       } catch (error) {
         console.error(error);
       }
@@ -48,141 +45,44 @@ function App() {
     getMusicPosts();
   }, []);
 
-  // runs function every time a component is rendered
-  // checks if selectedMusicPost = truthy (when user clicks on a specific post)
-  // if false do nothing
-  useEffect(() => {
-    // get all comments for a music post
-    // pass in selectedMusicPost?
-    const getComments = async () => {
-    if (!selectedMusicPost) {
-      return;
-    }
+  return (
+    <div>
+      <Router>
+        <NavBar />
+        <main className="py-3">
+          <Container>
+            <Routes>
+              <Route path="/" element={<HomePage />} exact />
+              <Route
+                path="/explore"
+                element={<ExplorePage musicPosts={musicPosts} />}
+                exact
+              />
 
-      const cookieValue = document.cookie
-        .split("; ")
-        .find((row) => row.startsWith("token="))
-        ?.split("=")[1];
-      const token = "Token " + cookieValue;
-      try {
-        const response = await axios.get(
-          `${baseUrl}/music_post/${selectedMusicPost}/comments/`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `${token}`,
-            },
-          }
-        );
-        setComments(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    getComments();
-  }, [selectedMusicPost]);
+              <Route path="/login" element={<LoginForm />} exact />
+              <Route path="/register" element={<Register />} exact />
+              {/* <Route path="/musicpost/:id/comments" element={<MusicPostPage/>} exact /> */}
+
+              {/* :id = pass in id of selected music post as param thats 
+              being accessed in MusicPostPage via `useParams`   */}
+              <Route
+                path="/musicpost/:id/comments"
+                element={<MusicPostPage />}
+                exact
+              />
+              {/* <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} /> */}
+              {/* <Route path="/:username" element={<ProfilePage />} /> */}
+            </Routes>
+          </Container>
+        </main>
+        <Footer />
+      </Router>
+      q
+    </div>
+  );
+}
 
 export default App;
-
-
-
-
-
-//////////// OLD 
-//  // get all comments for a music post 
-
-// useEffect(() => {
-
-
-//   // get all comments for a music post
-//   // pass in selectedMusicPost?
-//   const getComments = async () => {
-//   if (!selectedMusicPost) {
-//     return;
-//   }
-
-//     const cookieValue = document.cookie
-//       .split("; ")
-//       .find((row) => row.startsWith("token="))
-//       ?.split("=")[1];
-//     const token = "Token " + cookieValue;
-    
-//     try {
-//       const response = await axios.get(
-//         `${baseUrl}/music_post/${selectedMusicPost}/comments/`,
-//         {
-//           headers: {
-//             "Content-Type": "application/json",
-//             Authorization: `${token}`,
-//           },
-//         }
-//       );
-//       setComments(response.data);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-//   getComments();
-// }, [selectedMusicPost]);
-
-    // const updateSelectedMusicPost = (musicPostId) => {
-    //   setSelectedMusicPost(musicPostId);
-    // };
-
-    /////////////////////
-
-// renders data returned from API call & stored in musicPosts state
-//   <div className="music-posts-container">
-//     {console.log("musicPosts:", musicPosts)}
-//     {Object.entries(musicPosts).map(([username, post]) => {
-//       console.log("username:", username);
-//       console.log("post:", post);
-//       return (
-//         <MusicPost
-//           key={username}
-//           username={username}
-//           date={post[0].date}
-//           likes_count={post[0].likes_count}
-//           songs={post[0].songs}
-//         />
-//       );
-//     })}
-//   </div>
-// );
-//   }
-
-//* takes `musicPosts` object (state in app, holds response data) & converts
-// it's properties into an array of arrays */}
-///* each inner array is key=username, value=post. map loops thru each username/post,
-// creates MusicPost component for each, passing in
-// username, date, likes_count, songs as props to MusicPost component */}
-// {Object.entries(musicPosts).map(([username, post]) => (
-
-// each MusicPost is passed props as values to key, username, etc
-// <MusicPost
-// key={username}
-// `username` is the key
-// passing `username` variable as value of `username`
-// prop to `MusicPost`
-// username={username}
-// `post` is value (array of objects w/ date/likes/songs properties)
-// date={post[0].date}
-// likes_count={post[0].likes_count}
-// songs={post[0].songs}
-// />
-// ))}
-// </div>
-// );
-// }
-
-// const [exploreData, setExploreData] = useState([]);
-
-// const getExplorePosts = async () => {
-//   const explorePosts = await explorePostsApi();
-//   setExploreData(explorePosts);
-// };
-
-//     return response.data.map(API);
 
 /////////// comments stuff           ///////////////////
 
