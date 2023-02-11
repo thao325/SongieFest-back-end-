@@ -9,18 +9,23 @@ import LoginForm from "./Forms/LoginForm";
 import NavBar from "./Components/NavBar.js";
 // import CommentForm from "./Forms/CommentForm";
 // import CommentList from "./Components/CommentList";
-// import MusicPost from "./Components/MusicPost.js";
+import MusicPostPage from "./Pages/MusicPostPage.js";
 // import Song from "./Components/Song.js";
 import HomePage from "./Pages/HomePage";
 import { Register } from "./Forms/Register.jsx";
 import axios from "axios";
+// import { useNavigate } from "react-router-dom";
 
 const baseUrl = "https://songiefest-be.herokuapp.com";
+
 
 function App() {
   // store data of music posts API call in state
   const [musicPosts, setMusicPosts] = useState({});
   const [selectedMusicPost, setSelectedMusicPost] = useState(null);
+  const [comments, setComments] = useState([]);
+
+
 
   // get all music posts/Explore Page
   useEffect(() => {
@@ -30,7 +35,7 @@ function App() {
         .find((row) => row.startsWith("token="))
         ?.split("=")[1];
       const token = "Token " + cookieValue;
-      // const token = document.cookie
+  
       try {
         const response = await axios.get(`${baseUrl}/explore/`, {
           headers: {
@@ -39,7 +44,6 @@ function App() {
           },
         });
         setMusicPosts(response.data);
-        // console.log("explore page data from API", response.data);
       } catch (error) {
         console.error(error);
       }
@@ -47,39 +51,54 @@ function App() {
     getMusicPosts();
   }, []);
 
+
+
  // get all comments for a music post 
-  useEffect(() => {
-    const getComments = async () => {
-    if (!selectedMusicPost) {
-      return;
+useEffect(() => {
+  
+  
+
+  // get all comments for a music post
+  // pass in selectedMusicPost?
+  const getComments = async () => {
+  if (!selectedMusicPost) {
+    return;
+  }
+
+    const cookieValue = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("token="))
+      ?.split("=")[1];
+    const token = "Token " + cookieValue;
+    
+    try {
+      const response = await axios.get(
+        `${baseUrl}/music_post/${selectedMusicPost}/comments/`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${token}`,
+          },
+        }
+      );
+      setComments(response.data);
+    } catch (error) {
+      console.error(error);
     }
+  };
+  getComments();
+}, [selectedMusicPost]);
 
-      const cookieValue = document.cookie
-        .split("; ")
-        .find((row) => row.startsWith("token="))
-        ?.split("=")[1];
-      const token = "Token " + cookieValue;
-      try {
-        const response = await axios.get(
-          `${baseUrl}/music_post/${selectedMusicPost}/comments/`,
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `${token}`,
-            },
-          }
-        );
-        setComments(response.data);
-      } catch (error) {
-        console.error(error);
-      }
+
+
+
+
+
+
+
+    const updateSelectedMusicPost = (musicPostId) => {
+      setSelectedMusicPost(musicPostId);
     };
-    getComments();
-  }, [selectedMusicPost]);
-
-
-
-
   return (
     <div>
       <Router>
@@ -90,12 +109,15 @@ function App() {
               <Route path="/" element={<HomePage />} exact />
               <Route
                 path="/explore"
-                element={<ExplorePage musicPosts={musicPosts} />}
+                element={<ExplorePage musicPosts={musicPosts} grabMusicPost={updateSelectedMusicPost} />}
                 exact
               />
+        
               <Route path="/login" element={<LoginForm />} exact />
               <Route path="/register" element={<Register />} exact />
-              
+              {/* <Route path="/musicpost/:id/comments" element={<MusicPostPage/>} exact /> */}
+              <Route path="/musicpost/:id/comments" element={<MusicPostPage comments={comments} grabMusicPost={updateSelectedMusicPost}/>} exact />
+               {/* <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} /> */}
               {/* <Route path="/:username" element={<ProfilePage />} /> */}
             </Routes>
           </Container>

@@ -5,9 +5,10 @@ import MusicPost from './MusicPost'
 // import CommentViewButton from './CommentViewButton'
 
 
-function MusicPostList({ musicPosts }) {
+function MusicPostList({ musicPosts, grabMusicPost }) {
   // for (const musicPost of musicPosts) { 
   //   console.log(musicPost); }
+  /// DELETE POST LATER
   const posts = Object.entries(musicPosts).map((username, post) => (
     // console.log(username[1][0].songs)
 
@@ -17,7 +18,8 @@ function MusicPostList({ musicPosts }) {
       username={username[0]}
       date={username[1][0].date}
       likes_count={username[1][0].likes_count}
-      songs={username[1][0].songs}/>
+      songs={username[1][0].songs}
+      grabMusicPost={grabMusicPost}/>
       
   ))
 
