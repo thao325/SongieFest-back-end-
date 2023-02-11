@@ -35,7 +35,7 @@ function Comment({ id, text }) {
         // state w/ response data's `username` propery
         setCommentUsername(response.data.username);
         // setCommentUsername(response.data);
-        console.log(response.data.username);
+
       } catch (error) {
         console.error(error);
       }

@@ -36,7 +36,7 @@ function MusicPost({ id, username, date, likes_count, songs, grabMusicPost }) {
 
         <div className='bottom-of-post'>
           <h5 >♡ {likes_count} likes </h5>
-          <CommentViewButton musicPostId={id} grabMusicPost={grabMusicPost}></CommentViewButton>
+          <CommentViewButton musicPostId={id} grabMusicPost={grabMusicPost ? grabMusicPost: undefined}></CommentViewButton>
           {/* <h3 className='heart-button'>♡</h3>
           <p className="music-post-likes-count"> {likes_count} likes </p>
           <CommentViewButton className='comment-bar'></CommentViewButton> */}

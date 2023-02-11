@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import MusicPostList from "../Components/MusicPostList"
+import CommentList from "../Components/CommentList"
 import axios from "axios";
 import Comment from '../Components/Comment'
 
@@ -54,6 +54,7 @@ const MusicPostPage = () => {
   const commentList = []
   for (const comment of comments){
     commentList.push(<Comment key={comment.id} id={comment.id} text={comment.text} date_published={comment.date_published}></Comment>)
+
   }
 
   return (
@@ -63,7 +64,7 @@ const MusicPostPage = () => {
       <h1>Comments</h1>
 
     <div>
-      {commentList}
+      <CommentList musicPostId={id} commentList={commentList}></CommentList>
     </div>
     </div>
   );
