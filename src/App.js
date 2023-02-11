@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// // import "./App.css";
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer";
@@ -18,13 +17,9 @@ import axios from "axios";
 
 const baseUrl = "https://songiefest-be.herokuapp.com";
 
-
 function App() {
   // store data of music posts API call in state
   const [musicPosts, setMusicPosts] = useState({});
-  const [selectedMusicPost, setSelectedMusicPost] = useState(null);
-  const [comments, setComments] = useState([]);
-
 
 
   // get all music posts/Explore Page
@@ -52,53 +47,6 @@ function App() {
   }, []);
 
 
-
- // get all comments for a music post 
-useEffect(() => {
-  
-  
-
-  // get all comments for a music post
-  // pass in selectedMusicPost?
-  const getComments = async () => {
-  if (!selectedMusicPost) {
-    return;
-  }
-
-    const cookieValue = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("token="))
-      ?.split("=")[1];
-    const token = "Token " + cookieValue;
-    
-    try {
-      const response = await axios.get(
-        `${baseUrl}/music_post/${selectedMusicPost}/comments/`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `${token}`,
-          },
-        }
-      );
-      setComments(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-  getComments();
-}, [selectedMusicPost]);
-
-
-
-
-
-
-
-
-    const updateSelectedMusicPost = (musicPostId) => {
-      setSelectedMusicPost(musicPostId);
-    };
   return (
     <div>
       <Router>
@@ -109,26 +57,76 @@ useEffect(() => {
               <Route path="/" element={<HomePage />} exact />
               <Route
                 path="/explore"
-                element={<ExplorePage musicPosts={musicPosts} grabMusicPost={updateSelectedMusicPost} />}
+                element={<ExplorePage musicPosts={musicPosts} />}
                 exact
               />
         
               <Route path="/login" element={<LoginForm />} exact />
               <Route path="/register" element={<Register />} exact />
               {/* <Route path="/musicpost/:id/comments" element={<MusicPostPage/>} exact /> */}
-              <Route path="/musicpost/:id/comments" element={<MusicPostPage comments={comments} grabMusicPost={updateSelectedMusicPost}/>} exact />
+
+              {/* :id = pass in id of selected music post as param thats 
+              being accessed in MusicPostPage via `useParams`   */}
+              <Route path="/musicpost/:id/comments" element={<MusicPostPage/>} exact />
                {/* <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} /> */}
               {/* <Route path="/:username" element={<ProfilePage />} /> */}
             </Routes>
           </Container>
         </main>
         <Footer />
-      </Router>
+      </Router>q
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+//////////// OLD 
+//  // get all comments for a music post 
+
+// useEffect(() => {
+
+
+//   // get all comments for a music post
+//   // pass in selectedMusicPost?
+//   const getComments = async () => {
+//   if (!selectedMusicPost) {
+//     return;
+//   }
+
+//     const cookieValue = document.cookie
+//       .split("; ")
+//       .find((row) => row.startsWith("token="))
+//       ?.split("=")[1];
+//     const token = "Token " + cookieValue;
+    
+//     try {
+//       const response = await axios.get(
+//         `${baseUrl}/music_post/${selectedMusicPost}/comments/`,
+//         {
+//           headers: {
+//             "Content-Type": "application/json",
+//             Authorization: `${token}`,
+//           },
+//         }
+//       );
+//       setComments(response.data);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+//   getComments();
+// }, [selectedMusicPost]);
+
+    // const updateSelectedMusicPost = (musicPostId) => {
+    //   setSelectedMusicPost(musicPostId);
+    // };
+
+    /////////////////////
 
 // renders data returned from API call & stored in musicPosts state
 //   <div className="music-posts-container">
