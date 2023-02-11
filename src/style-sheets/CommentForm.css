@@ -1,4 +1,4 @@
-/* IMPORTANT REMINDER IF YOU CHANGE ANYTHING HERE YOU ALSO NEED TO CHANGE COMMENTFORM.CSS */
+
 .comment-page {
     display: flex;
     flex-direction: column;
@@ -17,5 +17,18 @@
     font-weight: bold;
 }
 
+/* this controls the new comment */
+#new-comment{
+    margin: auto;
+    width: 88%
+}
+
+form {
+    margin: auto;
+    width:60%;
+}
+.submit{
 
 
+    
+}
