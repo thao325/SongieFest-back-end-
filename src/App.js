@@ -144,29 +144,6 @@ function App() {
 
 export default App;
 
-//* takes `musicPosts` object (state in app, holds response data) & converts
-// it's properties into an array of arrays */}
-///* each inner array is key=username, value=post. map loops thru each username/post,
-// creates MusicPost component for each, passing in
-// username, date, likes_count, songs as props to MusicPost component */}
-// {Object.entries(musicPosts).map(([username, post]) => (
-
-// each MusicPost is passed props as values to key, username, etc
-// <MusicPost
-// key={username}
-// `username` is the key
-// passing `username` variable as value of `username`
-// prop to `MusicPost`
-// username={username}
-// `post` is value (array of objects w/ date/likes/songs properties)
-// date={post[0].date}
-// likes_count={post[0].likes_count}
-// songs={post[0].songs}
-// />
-// ))}
-// </div>
-// );
-// }
 
 /////////// comments stuff           ///////////////////
 
