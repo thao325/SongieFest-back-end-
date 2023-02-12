@@ -76,18 +76,6 @@ function CommentForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <textarea
-          type="text"
-          value={makeComment}
-          onChange={(event) => setMakeComment(event.target.value)}
-          className="input"
-          placeholder="Write a comment"
-        />
-        <button className="submit" type="submit">
-          Submit
-        </button>
-      </form>
       <ul>
         {/* iterate over showComments array of objects, makes a new <li> for
         each comment in showComments, need key= unique identifier */}
@@ -101,6 +89,18 @@ function CommentForm() {
           </div>
         ))}
       </ul>
+      <form onSubmit={handleSubmit}>
+        <textarea
+          type="text"
+          value={makeComment}
+          onChange={(event) => setMakeComment(event.target.value)}
+          className="input"
+          placeholder="Write a comment"
+        />
+        <button className="submit" type="submit">
+          Submit
+        </button>
+      </form>
     </>
   );
 }

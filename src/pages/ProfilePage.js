@@ -1,33 +1,55 @@
-// import React from "react";
-// import MusicPost from "../Components/MusicPost.js";
-// import musicPosts from "../musicpostdata";
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import { useParams } from 'react-router-dom';
 
-  
+// const baseUrl = "https://songiefest-be.herokuapp.com";
 
-// // MusicPost object assigned props
-// // grabbing data from musicpostdata.js (array of JS objects) 
-// function createMusicPost(musicPost) {
-//   return <MusicPost
-//   key={musicPost.id}
-//   month={musicPost.month} 
-//   // img={musicPost.img}
-//   song1={musicPost.song1}
-//   song2={musicPost.song2}
-//   song3={musicPost.song3}
-//   song4={musicPost.song4}
-//   song5={musicPost.song5}
-//   />;
-// }
+// get all music posts for specific username
+// username needs to be obtained from authentication system
+// cookie??
+// const Profile = () => {
+//   const { username } = useParams();
+//   const [posts, setPosts] = useState([]);
 
-// function ProfilePage() {
+//   useEffect(() => {
+//     const fetchUserPosts = async () => {
+//       try {
+//         const cookieValue = document.cookie
+//           .split("; ")
+//           .find((row) => row.startsWith("token="))
+//           ?.split("=")[1];
+//         const token = "Token " + cookieValue;
+
+//         const response = await axios.get(`${baseUrl}/${username}/`, {
+//           headers: {
+//             "Content-Type": "application/json",
+//             Authorization: `${token}`,
+//           },
+//         });
+
+//         setPosts(response.data);
+//       } catch (error) {
+//         console.error(error);
+//       }
+//     };
+
+//     fetchUserPosts();
+//   }, [username]);
+
+
+//   ///// RETURN STILL NEEDS WORK  \\\\\\
 //   return (
 //     <div>
-//       <h1 className="heading">Thao's Music Posts</h1>
-//       {musicPosts.map(createMusicPost)}
+//       <h2>{username}'s Music Posts</h2>
+//       {/* Render music posts */}
+
+//       {/* {posts.map((musicPost) => (
+//         <div key={musicPost.id}>
+//           <p>{musicPost.title}</p>
+//         </div> */}
+//       {/* ))} */}
 //     </div>
 //   );
-// }
+// };
 
-
-
-// export default ProfilePage;
+// export default Profile;
