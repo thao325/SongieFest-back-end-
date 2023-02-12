@@ -48,6 +48,16 @@ function CommentForm() {
     }
   };
 
+  // ===  delete comment === //
+
+  // function deleteComment(id) {
+  //   setComments((prevComments) => {
+  //     return prevComments.filter((comment, index) => {
+  //       return index !== id;
+  //     });
+  //   });
+  // }
+
   return (
     <>
       <form onSubmit={handleSubmit}>

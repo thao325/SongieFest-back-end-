@@ -46,6 +46,25 @@ function App() {
     getMusicPosts();
   }, []);
 
+  // == NO PUT/PATCH ROUTE FOR MUSIC_POST/ID == MADE A LIKE COMPONENT 
+  // Like a Music Post
+
+  // const updateLikesApi = (musicPostId) => {
+  //   return axios
+  //     .put(`${kBaseUrl}/music_post/${id}/like`) ???
+  //     .then((response) => {
+  //       getMusicPosts(selectedMusicPost);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error.message);
+  //     });
+  // };
+
+
+
+
+
+
 
   return (
     <div>
@@ -83,37 +102,6 @@ export default App;
 
 
 
-/////////// comments stuff           ///////////////////
 
-// const [comments, setComments] = useState([]);
 
-// function addComment(inputText) {
-//   setComments((prevComments) => {
-//     return [...prevComments, inputText];
-//   });
-// }
 
-// function deleteComment(id) {
-//   setComments((prevComments) => {
-//     return prevComments.filter((comment, index) => {
-//       return index !== id;
-//     });
-//   });
-// }
-
-// return (
-// <div>
-
-//   <CommentForm onAdd={addComment} />
-//   <div>
-//     <ul>
-//       {comments.map((commentList, index) => ( */}
-//         <CommentList */}
-//           key={index}
-//           id={index}
-//           text={commentList}
-//           onChecked={deleteComment} */}
-//         /> */}
-//     ))} */}
-//   </ul> */}
-// </div> */}

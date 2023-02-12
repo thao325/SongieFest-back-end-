@@ -7,6 +7,7 @@ import CommentForm from "../Forms/CommentForm";
 
 const baseUrl = "https://songiefest-be.herokuapp.com";
 
+// GET all comments for a specific music post
 const MusicPostPage = () => {
   const [comments, setComments] = useState([]);
   const { id } = useParams();
