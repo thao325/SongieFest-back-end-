@@ -54,6 +54,7 @@ function CommentList({commentList, musicPostId}) {
 
   return (
     <div>
+      {/* <MusicPost></MusicPost> */}
 
       {/* <MusicPost id={musicPostData.id} username={musicPostData.username} date={musicPostData.date} likes_count={musicPostData.likes_count} songs={musicPostData.songs}></MusicPost> */}
     

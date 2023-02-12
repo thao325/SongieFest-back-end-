@@ -33,12 +33,6 @@
     /* background-color: #CCCCFF; */
 }
 
-.music-post-song {
-    display:inline;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
 
 
 
@@ -58,9 +52,32 @@
 
 }
 
-.heart-button {
-    font-size: 40px;
+.likes-count {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.5);
 }
+
+.heart-button {
+    cursor: pointer;
+
+    
+} 
+
+
+
+
+
+.music-post-song {
+    display:inline;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+
+
 
 /* .comment-bar{ */
     /* position: relative;
@@ -91,10 +108,7 @@
     font-weight: bold;
 }
 
-.likes-count {
-    font-size: 16px;
-    color: rgba(255, 255, 255, 0.5);
-}
+
 
 .songs-container {
     display: flex;

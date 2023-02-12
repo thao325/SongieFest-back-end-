@@ -21,7 +21,7 @@ function CommentViewButton ({musicPostId, grabMusicPost}) {
 
 
   return(
-    <div className='button'>
+    <div >
       <p className="text" onClick={handleCommentView}> View 8 Comments</p>
       {musicPostId}
     </div>
