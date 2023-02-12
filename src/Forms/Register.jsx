@@ -11,6 +11,8 @@ const baseUrl= 'https://songiefest-be.herokuapp.com/register/'
 
 
 export const Register = ()=>{
+    const navigate = useNavigate();
+    
 
     // const [email, setEmail] = useState('');
 
@@ -61,14 +63,13 @@ export const Register = ()=>{
             console.log(document.cookie)
             console.log(token)
             });
+            navigate("/login");
         
         }catch(error){
             console.log(error)
         }
     };
         
-    const navigate = useNavigate();
-    const handleLoginClick = () => navigate("/login");
         
     
     
@@ -134,7 +135,7 @@ export const Register = ()=>{
         &nbsp;
         <button onClick={submitForm}type="submit"> Submit</button>
     </form>
-    <button className="link-btn" onClick={handleLoginClick}>Already have an account? Login here.</button>
+    <button className="link-btn" >Already have an account? Login here.</button>
 </div> 
     )
 }
