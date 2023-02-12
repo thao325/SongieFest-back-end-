@@ -6,7 +6,7 @@
 
 } */
 
-div .button{
+/* div .button{
     display: flex;
     background-color: plum ;
     border-color: gray;
@@ -14,9 +14,24 @@ div .button{
     margin: 5%;
     display: table-cell; 
     vertical-align: middle;
-}
-/* 
+} */
+
 .text{
+    background-color: #feeaeb;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 6px #999;
+    padding: 8px 18px;
+
+    /* text-align: center; */
     
 
-} */
+} 
+
+.text:hover {background-color: #ffdae5;}
+
+.text:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

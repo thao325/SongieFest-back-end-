@@ -12,6 +12,8 @@ const MusicPostPage = () => {
   const [comments, setComments] = useState([]);
   const { id } = useParams();
 
+  
+
   // get data for specific music post based on `id` in URL
   // runs everytime `id` in URL changes
   useEffect(() => {

@@ -10,15 +10,26 @@ import CommentViewButton from "./CommentViewButton";
 const baseUrl = "https://songiefest-be.herokuapp.com";
 
 // handle click music post to navigate to specific post
-function MusicPost({ id, username, date, likes_count, songs, grabMusicPost, handleLikeClick }) {
+function MusicPost({ id, username, date, likes_count, songs, grabMusicPost }) {
   // handle liking music post 
   // start w 0 or likes_count??
-  const [likesCount, setLikesCount] = useState(0);
+  const [likesCount, setLikesCount] = useState(likes_count);
+  const [state, setState] = useState(false);
 
   // when clicked, makes PATCH request,
   // sets `likesCount` state to updated value 
-  const handleLike = async () => {
-    const updateLikesCount = likesCount + 1;
+  const handleLikes = () => {
+    changeLikes();
+  };
+
+  const changeLikes = async () => {
+    const value = !state ? 1 : -1;
+  
+
+      setState(!state)
+    
+    const newLikesCount = likesCount + value;
+    console.log(newLikesCount)
 
     const cookieValue = document.cookie
       .split("; ")
@@ -27,13 +38,11 @@ function MusicPost({ id, username, date, likes_count, songs, grabMusicPost, hand
     const token = "Token " + cookieValue;
 
     try {
-    // PATCH for updated fields to be sent in request body
-    // PUT for entire object
+  
       await axios.patch(
-        // ===  NO PATCH ENDPOINT FOR /music_post/<id>  === 
-        `${baseUrl}/musicpost/${id}/like/`,
+        `${baseUrl}/explore/${id}/likes`,
         {
-          likes_count: updateLikesCount,
+          likes_count: newLikesCount,
         },
         {
           headers: {
@@ -44,8 +53,10 @@ function MusicPost({ id, username, date, likes_count, songs, grabMusicPost, hand
       );
       
       // set updated likes count in state
-      setLikesCount(updateLikesCount);
-      handleLikeClick(id, updateLikesCount);
+      setLikesCount(newLikesCount);
+      
+      
+      // handleLikeClick(id, newLikesCount);
     } catch (error) {
       console.error(error);
     }
@@ -77,8 +88,8 @@ function MusicPost({ id, username, date, likes_count, songs, grabMusicPost, hand
 
         <div className='bottom-of-post'>
           {/* when heart clicked, trigger handleLike function */}
-          <h3 className="heart-button" onClick={handleLike}>♡</h3>
-          <h3 className="likes-count"> {likes_count} likes </h3>
+          <h3 className="heart-button" onClick={handleLikes}>♡</h3>
+          <h3 className="likes-count"> {likesCount} likes </h3>
           {/* <h5 >♡ {likes_count} likes </h5> */}
           <CommentViewButton className="view-comments" musicPostId={id} grabMusicPost={grabMusicPost ? grabMusicPost: undefined}></CommentViewButton>
           {/* <h3 className='heart-button'>♡</h3>

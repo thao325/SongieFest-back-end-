@@ -88,7 +88,7 @@ function App() {
               being accessed in MusicPostPage via `useParams`   */}
               <Route path="/musicpost/:id/comments" element={<MusicPostPage/>} exact />
                {/* <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} /> */}
-              <Route path="/:username" element={<ProfilePage />} />
+              {/* <Route path="/:username" element={<ProfilePage />} /> */}
             </Routes>
           </Container>
         </main>
