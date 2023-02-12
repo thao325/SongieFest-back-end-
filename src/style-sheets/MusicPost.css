@@ -40,19 +40,6 @@
     text-align: center;
 }
 
-.music-post-likes-count {
-    
-    /* display:inline-block;
-    margin-top: auto ; */
-
-}
-
-.heart-button{
-    /* display:inline-block;
-    left: 100% */
-
-    
-}
 
 
 .bottom-of-post{
@@ -65,17 +52,23 @@
     flex-direction: row;
     width:80%;
     justify-content: space-between;
+
+    display: flex;
     
 
 }
 
-.comment-bar{
+.heart-button {
+    font-size: 40px;
+}
+
+/* .comment-bar{ */
     /* position: relative;
     right: 100%;
     transform: translateX(-100%);
     
     text-align: right; */
-}
+/* } */
 
 
 
@@ -99,8 +92,8 @@
 }
 
 .likes-count {
-    font-size: 14px;
-    color: #666;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .songs-container {
