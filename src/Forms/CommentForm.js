@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 // import { Form, Row, Button } from "react-bootstrap";
 // import FormContainer from "../Components/FormContainer";
 import axios from "axios";
-import CommentList from "../Components/CommentList";
+// import CommentList from "../Components/CommentList";
 
 //////     STILL IN WORKKK      \\\\\\\\\\\\\
 // make a comment, send POST request to backend on submit
@@ -66,9 +66,9 @@ function CommentForm() {
         {/* iterate over showComments array of objects, makes a new <li> for
         each comment in showComments, need key= unique identifier */}
         {showComments.map((showComment) => (
-          <div className="comment-box">
-          {/* access the text property of current comment object in iteration */}
-          <li key={showComment.id}>{showComment.text}</li>
+          <div className="comment-box" key={showComment.id}>
+            {/* access the text property of current comment object in iteration */}
+            <li>{showComment.text}</li>
           </div>
         ))}
       </ul>
