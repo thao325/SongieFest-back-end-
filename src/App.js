@@ -3,8 +3,7 @@ import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer";
 import ExplorePage from "./Pages/ExplorePage";
-import ProfilePage from "./Pages/ProfilePage";
-import LogoutPage from "./Pages/LogoutPage";
+// import ProfilePage from "./Pages/ProfilePage";
 import LoginForm from "./Forms/LoginForm";
 import NavBar from "./Components/NavBar.js";
 // import CommentForm from "./Forms/CommentForm";
@@ -20,7 +19,33 @@ const baseUrl = "https://songiefest-be.herokuapp.com";
 
 function App() {
   // store data of music posts API call in state
+  const [musicPosts, setMusicPosts] = useState({});
+
+
+  // get all music posts/Explore Page
+  useEffect(() => {
+    const getMusicPosts = async () => {
+      const cookieValue = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("token="))
+        ?.split("=")[1];
+      const token = "Token " + cookieValue;
   
+      try {
+        const response = await axios.get(`${baseUrl}/explore/`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `${token}`,
+          },
+        });
+        setMusicPosts(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getMusicPosts();
+  }, []);
+
 
   return (
     <div>
@@ -32,7 +57,7 @@ function App() {
               <Route path="/" element={<HomePage />} exact />
               <Route
                 path="/explore"
-                element={<ExplorePage />}
+                element={<ExplorePage musicPosts={musicPosts} />}
                 exact
               />
         
@@ -42,16 +67,14 @@ function App() {
 
               {/* :id = pass in id of selected music post as param thats 
               being accessed in MusicPostPage via `useParams`   */}
-              <Route path="/logout" element={<LogoutPage />} />
-              <Route path="/:username" element={<ProfilePage />} />
               <Route path="/musicpost/:id/comments" element={<MusicPostPage/>} exact />
                {/* <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} /> */}
-      
+              {/* <Route path="/:username" element={<ProfilePage />} /> */}
             </Routes>
           </Container>
         </main>
         <Footer />
-      </Router>
+      </Router>q
     </div>
   );
 }

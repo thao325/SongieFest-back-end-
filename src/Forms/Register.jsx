@@ -6,14 +6,21 @@ import '../style-sheets/Register.css';
 import 'bulma/css/bulma.min.css';
 import axios from "axios";
 
-
 const baseUrl= 'https://songiefest-be.herokuapp.com/register/'
 
 
 
 export const Register = ()=>{
 
+    // const [email, setEmail] = useState('');
 
+    // const [password, setPassword] = useState('');
+    // const [pass, setPass] = useState('');
+    // const [firstName, setFirstName] = useState('');
+    // const [lastName, setLastName] = useState('');
+    // const [username, setUsername] = useState('');
+    // const [name, setName] = useState('');
+    // const [username, setUsername] = useState('');
     const [userData, setUserData] = useState({
         "first_name": "",
         "last_name":"",
@@ -124,8 +131,6 @@ export const Register = ()=>{
         </div>
         
         
-
-        &nbsp;
         &nbsp;
         <button onClick={submitForm}type="submit"> Submit</button>
     </form>
