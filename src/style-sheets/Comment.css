@@ -5,7 +5,7 @@
     align-items: center;
 }
 
-.comment-box {
+.comment-box, .delete-comment-button {
     padding: 10px;
     border: 2px solid gray;
     margin: 10px 0;
