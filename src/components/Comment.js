@@ -42,6 +42,16 @@ function Comment({ id, text }) {
     getCommentUsername();
   }, [id]);
 
+
+ // Rosalinds comments
+// const [comments, setComments] = useState([]);
+
+
+
+// const comment = {text: 'here is a comment'};
+// const updatedComments = [...comments, comment];
+// setComments(updatedComments);
+
   return (
     <div className="comment-page">
       <div className="comment-box">
