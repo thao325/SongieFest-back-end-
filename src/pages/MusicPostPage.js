@@ -43,6 +43,7 @@ const MusicPostPage = () => {
     getComments();
   }, [id]);
 
+  
   // ======= DELETE a comment ============= //
   const deleteComment = async (commentId) => {
     try {
@@ -94,13 +95,19 @@ const MusicPostPage = () => {
     return (
       // {comments}
       // console.log('hi')
-      <div className="comment-page">
+      <div className="comments-header">
         <h1>Comments</h1>
+    
+      <div className="comment-page">
+        <div className="comment">
+      
 
         <div>
           <CommentList musicPostId={id} commentList={commentList}></CommentList>
         </div>
         <CommentForm />
+        </div>
+      </div>
       </div>
     );
   };

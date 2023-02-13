@@ -47,7 +47,7 @@ function Comment({ id, text, onDelete }) {
       <div className="comment-box">
         <b className="comment-username">{commentUsername}: </b>
         {text}
-        <button onClick={() => onDelete(id)}>Delete Comment</button>
+        <button className="delete-comment-button" onClick={() => onDelete(id)}>Delete</button>
       </div>
     </div>
   );

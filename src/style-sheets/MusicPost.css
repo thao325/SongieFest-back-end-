@@ -96,8 +96,8 @@
 
 .heart-button:active {
   /* background-color: #ffa7c1; */
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 
