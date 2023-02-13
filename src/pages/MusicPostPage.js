@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import CommentList from "../Components/CommentList"
+import CommentList from "../Components/CommentList";
 import axios from "axios";
-import Comment from '../Components/Comment'
+import Comment from "../Components/Comment";
 import CommentForm from "../Forms/CommentForm";
 
 const baseUrl = "https://songiefest-be.herokuapp.com";
@@ -11,8 +11,6 @@ const baseUrl = "https://songiefest-be.herokuapp.com";
 const MusicPostPage = () => {
   const [comments, setComments] = useState([]);
   const { id } = useParams();
-
-  
 
   // get data for specific music post based on `id` in URL
   // runs everytime `id` in URL changes
@@ -28,7 +26,7 @@ const MusicPostPage = () => {
 
       try {
         const response = await axios.get(
-          `${baseUrl}/music_post/${id}/comments/`,
+          `${baseUrl}/music_post/${id}/comments`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -44,36 +42,68 @@ const MusicPostPage = () => {
     };
     getComments();
   }, [id]);
-  // const { id } = useParams()
-  // grabMusicPost(id);
 
-  // }, []);
-  // console.log(musicPosts);
-   // const postsWithComments = [];
-  // for (const post of posts){
-  //   postsWithComments.push(post)
-  //   postsWithComments.push(<CommentViewButton key={post.props.id} musicPostId={post.id}></CommentViewButton>)
+  // ======= DELETE a comment ============= //
+  const deleteComment = async (commentId) => {
+    try {
+      const cookieValue = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("token="))
+        ?.split("=")[1];
+      const token = "Token " + cookieValue;
 
-  // }
-  const commentList = []
-  for (const comment of comments){
-    commentList.push(<Comment key={comment.id} id={comment.id} text={comment.text} date_published={comment.date_published}></Comment>)
+      await axios.delete(`${baseUrl}/music_post/${id}/comments/${commentId}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${token}`,
+        },
+      });
 
-  }
+      setComments((prevComments) => {
+        return prevComments.filter((comment) => comment.id !== commentId);
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-  return (
-    // {comments}
-    // console.log('hi')
-    <div className="comment-page">
-      <h1>Comments</h1>
+    // const { id } = useParams()
+    // grabMusicPost(id);
 
-    <div>
-      <CommentList musicPostId={id} commentList={commentList}></CommentList>
-    </div>
-    <CommentForm/>
-    
-    </div>
-  );
-};
+    // }, []);
+    // console.log(musicPosts);
+    // const postsWithComments = [];
+    // for (const post of posts){
+    //   postsWithComments.push(post)
+    //   postsWithComments.push(<CommentViewButton key={post.props.id} musicPostId={post.id}></CommentViewButton>)
+
+    // }
+    const commentList = [];
+    for (const comment of comments) {
+      commentList.push(
+        <Comment
+          key={comment.id}
+          id={comment.id}
+          text={comment.text}
+          date_published={comment.date_published}
+          onDelete={deleteComment}
+        ></Comment>
+      );
+    }
+
+    return (
+      // {comments}
+      // console.log('hi')
+      <div className="comment-page">
+        <h1>Comments</h1>
+
+        <div>
+          <CommentList musicPostId={id} commentList={commentList}></CommentList>
+        </div>
+        <CommentForm />
+      </div>
+    );
+  };
+
 
 export default MusicPostPage;
