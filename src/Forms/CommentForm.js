@@ -50,42 +50,43 @@ function CommentForm() {
 
   // ===  delete comment === //
   
-  const deleteComment = async (commentId) => {
-    try {
-      const cookieValue = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("token="))
-      ?.split("=")[1];
-      const token = "Token " + cookieValue;
+  // const deleteComment = async (commentId) => {
+  //   try {
+  //     const cookieValue = document.cookie
+  //     .split("; ")
+  //     .find((row) => row.startsWith("token="))
+  //     ?.split("=")[1];
+  //     const token = "Token " + cookieValue;
 
-      await axios.delete(
-        `${baseUrl}/music_post/${id}/comments/${commentId}/`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `${token}`,
-          },
-        }
-      );
+  //     await axios.delete(
+  //       `${baseUrl}/music_post/${id}/comments/${commentId}/`,
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //           Authorization: `${token}`,
+  //         },
+  //       }
+  //     );
       
-      setShowComments(showComments.filter((comment) => comment.id !== commentId));
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     setShowComments(showComments.filter((comment) => comment.id !== commentId));
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+
 
   return (
-    <>
+    <div className="comment-page">
       <ul>
         {/* iterate over showComments array of objects, makes a new <li> for
         each comment in showComments, need key= unique identifier */}
         {showComments.map((showComment) => (
           <div className="comment-box" key={showComment.id}>
             {/* access the text property of current comment object in iteration */}
-            <li>{showComment.text}</li>
-            <button className="delete-comment-button" onClick={() => deleteComment(showComment.id)}>
-              Delete Comment
-            </button>
+            <b className="comment-username">{showComment.username}: </b>
+          {showComment.text}
+
           </div>
         ))}
       </ul>
@@ -101,7 +102,7 @@ function CommentForm() {
           Submit
         </button>
       </form>
-    </>
+    </div>
   );
 }
 

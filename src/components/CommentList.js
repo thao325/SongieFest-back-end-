@@ -44,13 +44,35 @@ function CommentList({commentList, musicPostId}) {
   //   console.log(`${key}: ${value}`);
   // }
 
-
-
   // useEffect(() => {
   //   const commentSection = document.getElementById('comment-section');
   //   if (musicPostData) {
   //     commentSection.scrollIntoView({ behavior: 'smooth' })
   //   }}, [])
+
+  // ====  DELETE COMMENT ON CLICK  ====== // 
+  // const deleteComment = async (commentId) => {
+  //   const cookieValue = document.cookie
+  //     .split("; ")
+  //     .find((row) => row.startsWith("token="))
+  //     ?.split("=")[1];
+  //   const token = "Token " + cookieValue;
+
+  //   try {
+  //     const response = await axios.delete(`${baseUrl}/comments/${commentId}/`,
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `${token}`,
+  //       },
+  //     });
+  //     console.log(response.data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+
 
   return (
     <div>
