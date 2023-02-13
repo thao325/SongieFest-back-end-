@@ -45,11 +45,11 @@ function MusicPost({ id, username, date, likes_count, songs, grabMusicPost }) {
 
     try {
   
-      await axios.patch(
-        `${baseUrl}/explore/${id}/likes/`,
-        {
-          likes_count: newLikesCount,
-        },
+      await axios.get(
+        `${baseUrl}/explore/${id}/likes-count/`,
+        // {
+        //   likes_count: newLikesCount,
+        // },
         {
           headers: {
             "Content-Type": "application/json",
@@ -57,8 +57,8 @@ function MusicPost({ id, username, date, likes_count, songs, grabMusicPost }) {
           },
         }
       );
-      
       // set updated likes count in state
+      // console.log(response.data)
       setLikesCount(newLikesCount);
       
       
