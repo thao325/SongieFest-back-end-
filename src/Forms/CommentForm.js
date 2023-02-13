@@ -48,31 +48,6 @@ function CommentForm() {
     }
   };
 
-  // ===  delete comment === //
-  
-  const deleteComment = async (commentId) => {
-    try {
-      const cookieValue = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("token="))
-      ?.split("=")[1];
-      const token = "Token " + cookieValue;
-
-      await axios.delete(
-        `${baseUrl}/music_post/${id}/comments/${commentId}/`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `${token}`,
-          },
-        }
-      );
-      
-      setShowComments(showComments.filter((comment) => comment.id !== commentId));
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   return (
     <>
@@ -83,9 +58,9 @@ function CommentForm() {
           <div className="comment-box" key={showComment.id}>
             {/* access the text property of current comment object in iteration */}
             <li>{showComment.text}</li>
-            <button className="delete-comment-button" onClick={() => deleteComment(showComment.id)}>
+            {/* <button className="delete-comment-button" onClick={() => deleteComment(showComment.id)}>
               Delete Comment
-            </button>
+            </button> */}
           </div>
         ))}
       </ul>

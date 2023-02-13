@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import MusicPost from "./MusicPost";
+// import MusicPost from "./MusicPost";
 
 // view ALL comments on 1 music post + the single music post
 // ask thao about onChecked

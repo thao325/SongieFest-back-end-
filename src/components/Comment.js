@@ -8,7 +8,7 @@ const baseUrl = "https://songiefest-be.herokuapp.com";
 // 'music_post/get-username/<int:commentid>
 
 // takes id, text as props
-function Comment({ id, text }) {
+function Comment({ id, text, onDelete }) {
   const [commentUsername, setCommentUsername] = useState("");
 
   useEffect(() => {
@@ -47,6 +47,7 @@ function Comment({ id, text }) {
       <div className="comment-box">
         <b className="comment-username">{commentUsername}: </b>
         {text}
+        <button className="delete-comment-button" onClick={() => onDelete(id)}>Delete</button>
       </div>
     </div>
   );
