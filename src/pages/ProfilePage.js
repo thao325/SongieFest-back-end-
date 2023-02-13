@@ -1,3 +1,42 @@
+import React from 'react';
+import "../style-sheets/ProfilePage.css";
+
+const padme = require('../padme.jpeg');
+
+function ProfilePage() {
+  return (
+    <div className="share">
+      <div className="shareWrapper">
+        <div className="shareTop">
+          <img className="ProfileImg" src={padme} alt=""/>
+          <input placeholder="What song are you listening to now?" 
+          className="shareInput"
+          />
+        </div>
+        <div className="shareBottom"></div>
+      </div>
+    </div>
+  )
+}
+
+export default ProfilePage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
 // import { useParams } from 'react-router-dom';
