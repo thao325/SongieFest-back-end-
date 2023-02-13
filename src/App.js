@@ -3,7 +3,8 @@ import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer";
 import ExplorePage from "./Pages/ExplorePage";
-import ProfilePage from "./Pages/ProfilePage";
+// import ProfilePage from "./Pages/ProfilePage";
+import LikesPage from './Pages/LikesPage';
 import LoginForm from "./Forms/LoginForm";
 import NavBar from "./Components/NavBar.js";
 // import CommentForm from "./Forms/CommentForm";
@@ -87,6 +88,7 @@ function App() {
               {/* :id = pass in id of selected music post as param thats 
               being accessed in MusicPostPage via `useParams`   */}
               <Route path="/musicpost/:id/comments" element={<MusicPostPage/>} exact />
+              <Route path="/musicpost/:id/likes" element={<LikesPage/>} exact />
                {/* <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} /> */}
               {/* <Route path="/:username" element={<ProfilePage />} /> */}
             </Routes>

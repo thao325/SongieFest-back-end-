@@ -18,10 +18,14 @@
 
 .text{
     background-color: #feeaeb;
+    color: #f67db3;
+    font-weight:bold;
     cursor: pointer;
     border-radius: 12px;
     box-shadow: 0 6px #999;
     padding: 8px 18px;
+    height: 38px;
+    font-size: 15px;
 
     /* text-align: center; */
     
@@ -31,7 +35,8 @@
 .text:hover {background-color: #ffdae5;}
 
 .text:active {
-  background-color: #3e8e41;
+  /* background-color: #ffa7c1; */
+
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }

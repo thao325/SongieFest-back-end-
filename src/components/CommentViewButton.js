@@ -23,7 +23,7 @@ function CommentViewButton ({musicPostId, grabMusicPost}) {
   return(
     <div >
       <p className="text" onClick={handleCommentView}> View 8 Comments</p>
-      {musicPostId}
+      
     </div>
     
   )

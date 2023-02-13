@@ -42,9 +42,9 @@
     bottom: 0;
     display:flex;
     align-self: flex-end;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     flex-direction: row;
-    width:80%;
+    width:90%;
     justify-content: space-between;
 
     display: flex;
@@ -53,18 +53,52 @@
 }
 
 .likes-count {
+    /* padding-top: 8px; */
     font-size: 16px;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.heart-button {
+    background-color: #feeaeb;
     cursor: pointer;
-
+    border-radius: 12px;
+    box-shadow: 0 6px #999;
+    /* margin: 6px; */
+    text-align: center;
+    width: 70px;
+    height: 38px;
+    padding-top: 9px;
     
+
+
+    /* color: rgba(255, 255, 255, 0.5); */
+    /* padding: 29px; */
+}
+.likes-count:hover {background-color: #ffdae5;}
+
+.likes-count-button:active {
+  background-color: #ffa7c1;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.heart-button{
+    background-color: #feeaeb;
+    cursor: pointer;
+    border-radius: 12px;
+    box-shadow: 0 6px #999;
+
+    width: 50px;
+    height: 40px;
+    text-align: center;
+
+    padding: 5px 5px 5px 5px;
+    
+
 } 
 
+.heart-button:hover {background-color: #ffdae5;}
 
-
+.heart-button:active {
+  /* background-color: #ffa7c1; */
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
 
 
 .music-post-song {

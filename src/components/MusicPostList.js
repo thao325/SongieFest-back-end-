@@ -35,7 +35,6 @@ function MusicPostList({ musicPosts, grabMusicPost }) {
     <div className="music-posts-container">
       {posts}
 
-
     </div>
   );
 } 

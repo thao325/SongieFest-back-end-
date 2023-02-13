@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import "../style-sheets/MusicPost.css";
 import Song from "./Song";
@@ -21,12 +21,18 @@ function MusicPost({ id, username, date, likes_count, songs, grabMusicPost }) {
   const handleLikes = () => {
     changeLikes();
   };
-
+  const navigate = useNavigate();
+  const handleRedirect = () => {
+    navigate(`/musicpost/${id}/likes`);
+  }
   const changeLikes = async () => {
     const value = !state ? 1 : -1;
+    
+    const heart = !state ? '♥': '♡';
+    document.getElementById("heart").innerHTML = heart
   
 
-      setState(!state)
+    setState(!state)
     
     const newLikesCount = likesCount + value;
     console.log(newLikesCount)
@@ -40,7 +46,7 @@ function MusicPost({ id, username, date, likes_count, songs, grabMusicPost }) {
     try {
   
       await axios.patch(
-        `${baseUrl}/explore/${id}/likes`,
+        `${baseUrl}/explore/${id}/likes/`,
         {
           likes_count: newLikesCount,
         },
@@ -88,16 +94,10 @@ function MusicPost({ id, username, date, likes_count, songs, grabMusicPost }) {
 
         <div className='bottom-of-post'>
           {/* when heart clicked, trigger handleLike function */}
-          <h3 className="heart-button" onClick={handleLikes}>♡</h3>
-          <h3 className="likes-count"> {likesCount} likes </h3>
-          {/* <h5 >♡ {likes_count} likes </h5> */}
+          <h3 id='heart' className="heart-button" onClick={handleLikes}>♡</h3>
+          <h3 className="likes-count" onClick={handleRedirect}> {likesCount} likes </h3>
+
           <CommentViewButton className="view-comments" musicPostId={id} grabMusicPost={grabMusicPost ? grabMusicPost: undefined}></CommentViewButton>
-          {/* <h3 className='heart-button'>♡</h3>
-          <p className="music-post-likes-count"> {likes_count} likes </p>
-          <CommentViewButton className='comment-bar'></CommentViewButton> */}
-          {/* <div classname='comment-bar'>
-            <CommentViewButton></CommentViewButton>
-          </div> */}
       
         </div>
     
