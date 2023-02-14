@@ -5,6 +5,7 @@ import Footer from "./Components/Footer";
 import ExplorePage from "./Pages/ExplorePage";
 import ProfilePage from "./Pages/ProfilePage";
 import LikesPage from './Pages/LikesPage';
+import LogoutPage from './Pages/LogoutPage';
 import LoginForm from "./Forms/LoginForm";
 import NavBar from "./Components/NavBar.js";
 // import CommentForm from "./Forms/CommentForm";
@@ -92,6 +93,7 @@ function App() {
               <Route path="/musicpost/:id/likes" element={<LikesPage/>} exact />
                {/* <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} /> */}
               <Route path="/padme" element={<ProfilePage />} />
+              <Route path="/logout" element={<LogoutPage />} />
             </Routes>
           </Container>
         </main>
