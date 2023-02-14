@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+
 import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./Components/Footer";
@@ -14,6 +14,7 @@ import MusicPostPage from "./Pages/MusicPostPage.js";
 import HomePage from "./Pages/HomePage";
 import { Register } from "./Forms/Register.jsx";
 import axios from "axios";
+import React, { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 
 const baseUrl = "https://songiefest-be.herokuapp.com";
@@ -90,12 +91,12 @@ function App() {
               <Route path="/musicpost/:id/comments" element={<MusicPostPage/>} exact />
               <Route path="/musicpost/:id/likes" element={<LikesPage/>} exact />
                {/* <Route path="/musicpost/:id" element={<MusicPostPage musicPosts={musicPosts} />} /> */}
-              <Route path="/:username" element={<ProfilePage />} />
+              <Route path="/padme" element={<ProfilePage />} />
             </Routes>
           </Container>
         </main>
         <Footer />
-      </Router>q
+      </Router>
     </div>
   );
 }
