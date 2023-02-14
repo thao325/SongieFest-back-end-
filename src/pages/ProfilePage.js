@@ -1,18 +1,17 @@
-import React from 'react';
+import React from "react";
 import "../style-sheets/ProfilePage.css";
 
 import axios from "axios";
 import { useState, useEffect } from "react";
-import MusicPost from '../Components/MusicPost';
-import ProfilePageList from '../Components/ProfilePageList';
+import MusicPost from "../Components/MusicPost";
+// import ProfilePageList from '../Components/ProfilePageList';
 
-const padme = require('../padme.jpeg');
-const coverPhoto = require('../coverPhoto.jpg');
+const padme = require("../padme.jpeg");
+const coverPhoto = require("../coverPhoto.jpg");
 const baseUrl = "https://songiefest-be.herokuapp.com";
 
 function ProfilePage() {
-  const [musicPosts, setMusicPosts] = useState({});
-
+  const [musicPosts, setMusicPosts] = useState([]);
 
   // get all music posts/Explore Page
   useEffect(() => {
@@ -22,7 +21,7 @@ function ProfilePage() {
         .find((row) => row.startsWith("token="))
         ?.split("=")[1];
       const token = "Token " + cookieValue;
-  
+
       try {
         const response = await axios.get(`${baseUrl}/padme/`, {
           headers: {
@@ -30,23 +29,22 @@ function ProfilePage() {
             Authorization: `${token}`,
           },
         });
-        const posts = []
-        for (const post of response.data){
-          posts.push(<MusicPost
-            id={post.id}
-            key={post.id}
-            username={post.username}
-            date={post.date}
-            likes_count={post.likes_count}
-            songs={post.songs}
-            />)
-            
-      
-
+        const posts = [];
+        for (const post of response.data) {
+          posts.push(
+            <MusicPost
+              id={post.id}
+              key={post.id}
+              username={post.username}
+              date={post.date}
+              likes_count={post.likes_count}
+              songs={post.songs}
+            />
+          );
         }
         // console.log(response.data[0])
         setMusicPosts(posts);
-        console.log(posts)
+        console.log(posts);
       } catch (error) {
         console.error(error);
       }
@@ -54,53 +52,36 @@ function ProfilePage() {
     getMusicPosts();
   }, []);
 
-
   return (
     <div>
-      <div className='profile'>
-        <div className='profileCover'>
-
-          <img className='profileCoverImg' src={coverPhoto} alt=''/>
-          <img className="profileUserImg" src={padme} alt=""/>
-        <div className="profileInfo">
-                <h4 className="profileInfoName"> Padme</h4>
-                <span className="profileInfoDesc"> You're probably going to think I'm crazy after you check out my listening history</span>
+      <div className="profile">
+        <div className="profileCover">
+          <img className="profileCoverImg" src={coverPhoto} alt="" />
+          <img className="profileUserImg" src={padme} alt="" />
+          <div className="profileInfo">
+            <h4 className="profileInfoName"> Padme</h4>
+            <span className="profileInfoDesc">
+              {" "}
+              You're probably going to think I'm crazy after you check out my
+              listening history
+            </span>
+          </div>
         </div>
       </div>
-
-    </div>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       {musicPosts}
-    {/* <ProfilePageList musicPosts={musicPosts}></ProfilePageList> */}
+      {/* <ProfilePageList musicPosts={musicPosts}></ProfilePageList> */}
     </div>
-    
-
-  )
+  );
 }
 
-export default ProfilePage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default ProfilePage;
 
 // import React, { useState, useEffect } from "react";
 // import axios from "axios";
@@ -139,7 +120,6 @@ export default ProfilePage
 
 //     fetchUserPosts();
 //   }, [username]);
-
 
 //   ///// RETURN STILL NEEDS WORK  \\\\\\
 //   return (
