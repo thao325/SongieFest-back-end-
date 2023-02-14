@@ -89,13 +89,13 @@ function MusicPost({ id, username, date, likes_count, songs, grabMusicPost }) {
     <div className="music-post-container">
       <div className="music-post">
         <h2 className="music-post-username"> {username}</h2>
-        <p>{date}</p>
+        <h6>{date}</h6>
         {songList}
 
         <div className='bottom-of-post'>
           {/* when heart clicked, trigger handleLike function */}
           <h3 id='heart' className="heart-button" onClick={handleLikes}>♡</h3>
-          <h3 className="likes-count" onClick={handleRedirect}> {likesCount} likes </h3>
+          <h4 className="likes-count" onClick={handleRedirect}> {likesCount} likes </h4>
 
           <CommentViewButton className="view-comments" musicPostId={id} grabMusicPost={grabMusicPost ? grabMusicPost: undefined}></CommentViewButton>
       
