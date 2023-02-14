@@ -25,9 +25,23 @@
 
 form {
     margin: auto;
-    width:60%;
+    width:84%;
+    display: flex;
+    flex-direction: column;
+    /* justify-items: center; */
+    /* justify-content: center; */
+
 }
 
-
+p{
+    text-align: center;
+    cursor: pointer;
+    background-color: palevioletred;
+    border-radius: 3px;
+    height:27px;
+    width:90px;
+    margin: auto;
+    
+}
 
     

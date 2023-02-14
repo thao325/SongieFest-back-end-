@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 // import { Form, Row, Button } from "react-bootstrap";
 // import FormContainer from "../Components/FormContainer";
 import axios from "axios";
+import "../style-sheets/CommentForm.css";
 // import CommentList from "../Components/CommentList";
 
 //////     STILL IN WORKKK      \\\\\\\\\\\\\
@@ -72,9 +73,10 @@ function CommentForm() {
           className="input"
           placeholder="Write a comment"
         />
-        <button className="submit" type="submit">
+        <br></br>
+        <p className="submit" type="submit">
           Submit
-        </button>
+        </p>
       </form>
     </>
   );

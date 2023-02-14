@@ -12,7 +12,7 @@
 
 .comment {
     padding: 10px;
-    border: 1px solid gray; 
+    /* border: 1px solid gray;  */
     margin: 10px 0;
     width: 100%;
     display: flex;
@@ -22,23 +22,42 @@
 
 .comment-box {
     padding: 30px;
-    border: 2px solid gray;
-    margin: 20px 0;
-    width: 80%;
+    /* border: 2px solid #feeaeb;; */
+    margin: 3px 0;
+    width: 400px;
+    height: 10px;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
+    display:inline;
+    /* align-items: center; */
+    /* text-align: center; */
 }
 
 .delete-comment-button {
-
+    /* display:none; */
+    opacity: .2;
     align-self: flex-end;
     font-size: small;
-    width: 60px;
-    height: 20px;
-    padding: 5px;
-    margin-top: 10px;
+    width: 6px;
+    height: 2px;
+    padding: 1px;
+    /* padding-bottom: 20px; */
+    /* margin-top: 10px; */
+    background: none;
+    /* font-weight: 40px; */
+    cursor: pointer;
+
+    color:#ffdae5;
 }
 
+.delete-comment-button:hover {
+    opacity: 1;
+}
 .comment-username {
     font-weight: bold;
+}
+b{
+   color:#ffdae5;
+   /* color: #DB7093 */
 }
