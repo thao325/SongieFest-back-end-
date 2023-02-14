@@ -10,10 +10,6 @@ function LikesPage() {
   const [likesList, setLikesList] = useState([]);
   const { id } = useParams();
 
-  
-
-  // get data for specific music post based on `id` in URL
-  // runs everytime `id` in URL changes
   useEffect(() => {
     // get all comments for a music post
     const getLikesList = async () => {

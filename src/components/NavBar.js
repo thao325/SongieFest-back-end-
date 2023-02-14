@@ -8,28 +8,16 @@ function NavBar() {
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            {/* point to home page "/" */}
             <Navbar.Brand>SongieFest</Navbar.Brand>
           </LinkContainer>
-
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              {/* <LinkContainer to="/cart">
-                <Nav.Link>   */}
-              {/* icons */}
-              {/* <i className="fas fa-shopping-cart"></i>Cart
-                </Nav.Link>
-              </LinkContainer> */}
-
-              {/* <LinkContainer> */}
-              {/* change endpoints here to change on browser */}
               <Nav.Link href="/register">Register</Nav.Link>
               <Nav.Link href="/login">Login</Nav.Link>
               <Nav.Link href="/explore">Explore</Nav.Link>
               <Nav.Link href="/padme">Profile</Nav.Link>
               <Nav.Link href="/logout">Logout</Nav.Link>
-              {/* </LinkContainer> */}
             </Nav>
           </Navbar.Collapse>
         </Container>

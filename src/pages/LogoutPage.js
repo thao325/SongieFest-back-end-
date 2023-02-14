@@ -5,7 +5,6 @@ function LogoutPage() {
 
 
     return (
-      // <div className="logout-container">
       <div className="logout-page">
         <div className="logout-text">You are logged out!</div>
       </div>

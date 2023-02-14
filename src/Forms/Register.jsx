@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-
-
 import '../style-sheets/Register.css';
 import 'bulma/css/bulma.min.css';
 import axios from "axios";
@@ -9,34 +7,16 @@ import axios from "axios";
 const baseUrl= 'https://songiefest-be.herokuapp.com/register/'
 
 
-
 export const Register = ()=>{
     const navigate = useNavigate();
     
-
-    // const [email, setEmail] = useState('');
-
-    // const [password, setPassword] = useState('');
-    // const [pass, setPass] = useState('');
-    // const [firstName, setFirstName] = useState('');
-    // const [lastName, setLastName] = useState('');
-    // const [username, setUsername] = useState('');
-    // const [name, setName] = useState('');
-    // const [username, setUsername] = useState('');
     const [userData, setUserData] = useState({
         "first_name": "",
         "last_name":"",
         "email":"",
         "password":"",
         "username":""
-
-
     });
-
-    // const [token, setTokenData] = useState({
-    //     "token": ""
-
-    // });
 
     const handleChange=(event) =>{
         setUserData({
@@ -55,8 +35,6 @@ export const Register = ()=>{
         userFormData.append("username", userData.username)
         try{
             axios.post(baseUrl, userFormData).then((response)=>{
-            // setTokenData(response.data['token']);
-            // console.log(token);
             document.cookie = "token=" + response.data['token'];
             const token = document.cookie;
         
@@ -69,9 +47,6 @@ export const Register = ()=>{
             console.log(error)
         }
     };
-        
-        
-    
     
     return(
         <div className="auth-form-container">
@@ -86,10 +61,6 @@ export const Register = ()=>{
 
     <label className="label" htmlFor="lastname">Last Name</label>
         <input className="input" name="last_name" onChange={handleChange} id="lastname" placeholder="Last Name"/>
-
-    
-        
-
         <label htmlFor='username'className="label">Username</label>
         <div className="control has-icons-left has-icons-right">
             <input className="input is-success" name="username" onChange={handleChange} id="username" placeholder="Username" />
@@ -100,9 +71,6 @@ export const Register = ()=>{
                 <i className="fas fa-check"></i>
             </span>
         </div>
-
-        {/* <label htmlFor="username">Username</label> */}
-        {/* <input name="username" onChange={handleChange} id="username" placeholder="Username" /> */}
     
         <label className='label' htmlFor="email">Email</label>
         <p className="control has-icons-left has-icons-right">
@@ -114,12 +82,6 @@ export const Register = ()=>{
                 <i className="fas fa-check"></i>
             </span>
         </p>
-
-{/*          
-        <input  onChange={handleChange} type="password" id="password" name="password" />
-        &nbsp; 
-        <label htmlFor="confirm-password"> Confirm Password</label>
-        <input  onChange={handleChange} type="confirm-password" id="confirm-password" name="confirm-password" /> */}
         <label htmlFor="password">Password</label>
         <div className="field">
             <p className="control has-icons-left">
@@ -130,7 +92,6 @@ export const Register = ()=>{
                     </span>
             </p>
         </div>
-        
         
         &nbsp;
         <button onClick={submitForm}type="submit"> Submit</button>

@@ -1,15 +1,8 @@
-// import React from "react";
-
 import MusicPost from './MusicPost'
-// import CommentViewButton from './CommentViewButton'
 
 
 function MusicPostList({ musicPosts, grabMusicPost }) {
-  // for (const musicPost of musicPosts) { 
-  //   console.log(musicPost); }
-  /// DELETE POST LATER
   const posts = Object.entries(musicPosts).map((username, post) => (
-    // console.log(username[1][0].songs)
 
       <MusicPost
       id={username[1][0].id}

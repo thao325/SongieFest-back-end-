@@ -12,10 +12,7 @@ const MusicPostPage = () => {
   const [comments, setComments] = useState([]);
   const { id } = useParams();
 
-  // get data for specific music post based on `id` in URL
-  // runs everytime `id` in URL changes
   useEffect(() => {
-    // get all comments for a music post
     const getComments = async () => {
       const cookieValue = document.cookie
         .split("; ")
@@ -35,7 +32,6 @@ const MusicPostPage = () => {
           }
         );
         setComments(response.data);
-        // console.log(response.data);
       } catch (error) {
         console.error(error);
       }
@@ -43,7 +39,6 @@ const MusicPostPage = () => {
     getComments();
   }, [id]);
 
-  
   // ======= DELETE a comment ============= //
   const deleteComment = async (commentId) => {
     try {
@@ -68,49 +63,36 @@ const MusicPostPage = () => {
     }
   };
 
-    // const { id } = useParams()
-    // grabMusicPost(id);
+  const commentList = [];
+  for (const comment of comments) {
+    commentList.push(
+      <Comment
+        key={comment.id}
+        id={comment.id}
+        text={comment.text}
+        date_published={comment.date_published}
+        onDelete={deleteComment}
+      ></Comment>
+    );
+  }
 
-    // }, []);
-    // console.log(musicPosts);
-    // const postsWithComments = [];
-    // for (const post of posts){
-    //   postsWithComments.push(post)
-    //   postsWithComments.push(<CommentViewButton key={post.props.id} musicPostId={post.id}></CommentViewButton>)
+  return (
+    <div className="comments-header">
+      <h1>Comments</h1>
 
-    // }
-    const commentList = [];
-    for (const comment of comments) {
-      commentList.push(
-        <Comment
-          key={comment.id}
-          id={comment.id}
-          text={comment.text}
-          date_published={comment.date_published}
-          onDelete={deleteComment}
-        ></Comment>
-      );
-    }
-
-    return (
-      // {comments}
-      // console.log('hi')
-      <div className="comments-header">
-        <h1>Comments</h1>
-    
       <div className="comment-page">
         <div className="comment">
-      
-
-        <div>
-          <CommentList musicPostId={id} commentList={commentList}></CommentList>
-        </div>
-        <CommentForm />
+          <div>
+            <CommentList
+              musicPostId={id}
+              commentList={commentList}
+            ></CommentList>
+          </div>
+          <CommentForm />
         </div>
       </div>
-      </div>
-    );
-  };
-
+    </div>
+  );
+};
 
 export default MusicPostPage;

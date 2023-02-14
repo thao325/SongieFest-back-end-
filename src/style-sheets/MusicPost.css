@@ -1,14 +1,9 @@
 
-
 .music-posts-container {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    /* justify-content:space-evenly; */
     align-items: center;
-    /* width: 100%; */
-    /* height: 100%; */
-    /* margin: 20%; */
     padding: 20px; 
     overflow: auto;
 
@@ -26,15 +21,9 @@
     flex-direction: column;
     margin-bottom: 20px;
     justify-content: center;
-    /* background-color: #96e0f9; */
     position: relative;
     
-    
-    /* background-color: #CCCCFF; */
 }
-
-
-
 
 .bottom-of-post{
     white-space: nowrap;
@@ -42,60 +31,45 @@
     bottom: 0;
     display:flex;
     align-self: flex-end;
-    /* justify-content: flex-start; */
     flex-direction: row;
     width:90%;
     justify-content: space-between;
-
     display: flex;
-    
-
 }
 
 .likes-count {
-    /* padding-top: 8px; */
     font-size: 16px;
     background-color: #feeaeb;
     cursor: pointer;
     border-radius: 12px;
     box-shadow: 0 6px #999;
-    /* margin: 6px; */
     text-align: center;
     width: 80px;
     height: 38px;
     padding-top: 9px;
     
-
-
-    /* color: rgba(255, 255, 255, 0.5); */
-    /* padding: 29px; */
 }
 .likes-count:hover {background-color: #ffdae5;}
 
 .likes-count-button:active {
-  background-color: #ffa7c1;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+    background-color: #ffa7c1;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 .heart-button{
     background-color: #feeaeb;
     cursor: pointer;
     border-radius: 12px;
     box-shadow: 0 6px #999;
-
     width: 50px;
     height: 40px;
     text-align: center;
-
     padding: 5px 5px 5px 5px;
-    
-
 } 
 
 .heart-button:hover {background-color: #ffdae5;}
 
 .heart-button:active {
-  /* background-color: #ffa7c1; */
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
@@ -108,36 +82,11 @@
     text-align: center;
 }
 
-
-
-
-
-
-/* .comment-bar{ */
-    /* position: relative;
-    right: 100%;
-    transform: translateX(-100%);
-    
-    text-align: right; */
-/* } */
-
-
-
 .music-post-container {
-    /* background-color: #f2f2f2; */
-
     padding: 20px;
     border-radius: 10px;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
-    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
 }
-/* 
-.date-likes-container {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-} */
 
 .date {
     font-size: 18px;
@@ -148,7 +97,6 @@
     color: #ffdae5;
     font-weight: 400;
     font-family: Arial;
-    /* font-size: ; */
 }
 
 .songs-container {
@@ -176,83 +124,3 @@
     color: #999;
 }
 
-
-
-
-
-/* ///////////////////////////////// */
-
-
-/* OLD STYLING STUFF BELOW */
-/* 
-body {
-    font-family: sans-serif;
-    margin: 0 auto;
-    padding: 25px;
-    max-width: 400px;
-    min-width: 400px;
-    background-color: #dfe6e9;
-    text-align: center;
-}
-
-.heading {
-    text-align: center;
-    font-size: 2em;
-    color: #2d3436;
-    margin: 20px 0 30px;
-}
-
-.post {
-    border-radius: 25px;
-    position: relative;
-    padding: 25px 15px;
-    background-color: #81ecec;
-    margin: 50px 0;
-    height: 200px;
-    box-shadow: 0 2px 5px #ccc;
-    text-align: left;
-}
-
-.top {
-    border-radius: 25px 25px 0 0;
-    height: 100px;
-    width: 100%;
-    background-color: #00cec9;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-}
-
-.month {
-    font-size: 2em;
-    color: #2d3436;
-    display: flex;
-    flex: 1;
-    margin: 10% 20px 0;
-}
-
-/* profile pic  */
-/*
-.post img {
-    margin: 30px 20px 0 0;
-}
-
-/*  white around pfp  */
-/*
-.circle-img {
-    border-radius: 50%;
-    border: 7px solid #fff;
-    width: 120px;
-    height: 120px;
-}
-
-.bottom {
-    margin-top: 120px;
-}
-
-.info {
-    margin: 20px 0;
-    color: #1a7e76;
-}
-*/ 

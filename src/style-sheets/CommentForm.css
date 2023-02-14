@@ -1,22 +1,3 @@
-/* 
-.comment-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-}
-
-.comment-box {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px 0;
-    width: 90%;
-}
-
-.comment-username {
-    font-weight: bold;
-} */
-
 /* this controls the new comment */
 #new-comment{
     margin: auto;
@@ -28,9 +9,6 @@ form {
     width:84%;
     display: flex;
     flex-direction: column;
-    /* justify-items: center; */
-    /* justify-content: center; */
-
 }
 
 .submit{

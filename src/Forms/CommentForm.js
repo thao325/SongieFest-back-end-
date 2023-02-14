@@ -1,14 +1,8 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-// import { Form, Row, Button } from "react-bootstrap";
-// import FormContainer from "../Components/FormContainer";
 import axios from "axios";
 import "../style-sheets/CommentForm.css";
-// import CommentList from "../Components/CommentList";
 
-//////     STILL IN WORKKK      \\\\\\\\\\\\\
-// make a comment, send POST request to backend on submit
-// musicpost/<music_post id>/comments/
 const baseUrl = "https://songiefest-be.herokuapp.com";
 
 function CommentForm() {
@@ -40,9 +34,6 @@ function CommentForm() {
       );
 
       console.log(response);
-      // update show comments state
-      // use spread operator, create new array that is a copy of the
-      // `showComments` state + new comment returned from backend (response.data) to it
       setShowComments([...showComments, response.data]);
     } catch (error) {
       console.error(error);
@@ -53,15 +44,9 @@ function CommentForm() {
   return (
     <>
       <ul>
-        {/* iterate over showComments array of objects, makes a new <li> for
-        each comment in showComments, need key= unique identifier */}
         {showComments.map((showComment) => (
           <div className="comment-box" key={showComment.id}>
-            {/* access the text property of current comment object in iteration */}
             <li>{showComment.text}</li>
-            {/* <button className="delete-comment-button" onClick={() => deleteComment(showComment.id)}>
-              Delete Comment
-            </button> */}
           </div>
         ))}
       </ul>
@@ -81,70 +66,3 @@ function CommentForm() {
 }
 
 export default CommentForm;
-
-//   return (
-//     <FormContainer>
-//       <Row>
-//         <h1>Leave a Comment.. </h1>
-
-//         <Form>
-//           <Form.Group controlId="username">
-//             <Form.Label>Username</Form.Label>
-//             <Form.Control
-//               type="text"
-//               placeholder="Enter Username"
-//               value={author}
-//               onChange={(event) => setAuthor(event.target.value)}
-//             ></Form.Control>
-//           </Form.Group>
-
-//           <Form.Group controlId="password">
-//             <Form.Label>Comment</Form.Label>
-//             <Form.Control
-//               type="text"
-//               placeholder="Leave a comment.. "
-//               autoComplete="off"
-//               value={text}
-//               onChange={(event) => setText(event.target.value)}
-//             ></Form.Control>
-//           </Form.Group>
-//         </Form>
-//       </Row>
-//       <Button type="submit" variant="primary" onClick={handleSubmit}>
-//         Comment
-//       </Button>
-//     </FormContainer>
-//   );
-// }
-
-// export default CommentForm;
-
-//////////////////
-
-// function CommentForm(props) {
-//   const [inputText, setInputText] = useState("");
-
-//   function handleChange(event) {
-//     const newValue = event.target.value;
-//     setInputText(newValue);
-//   }
-
-// return (
-//   <div className="form">
-//     <input onChange={handleChange} type="text" value={inputText} />
-//     <button
-//     onClick={() => {
-//       props.onAdd(inputText);
-//       // set back to empty once comment has been made
-//       setInputText("");
-//     }}
-//     >
-//       <span>Add Comment</span>
-//     </button>
-
-//   </div>
-// )
-
-// }
-
-// export default CommentForm;

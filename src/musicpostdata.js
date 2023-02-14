@@ -2,7 +2,6 @@ const musicPosts = [
   {
     id: 1,
     month: "January 2023",
-    // img: "actual pic link" (image src) for pfp
     song1: "Akuma no Ko (Attack on Titan) ❤️ played 100 times",
     song2: "Someday ❤️ played 100 times",
     song3: "Pizza ❤️ played 100 times",

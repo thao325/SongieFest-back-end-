@@ -12,7 +12,6 @@
 
 .comment {
     padding: 10px;
-    /* border: 1px solid gray;  */
     margin: 10px 0;
     width: 100%;
     display: flex;
@@ -22,7 +21,6 @@
 
 .comment-box {
     padding: 30px;
-    /* border: 2px solid #feeaeb;; */
     margin: 3px 0;
     width: 400px;
     height: 10px;
@@ -30,24 +28,17 @@
     display: flex;
     flex-direction: column;
     display:inline;
-    /* align-items: center; */
-    /* text-align: center; */
 }
 
 .delete-comment-button {
-    /* display:none; */
     opacity: .2;
     align-self: flex-end;
     font-size: small;
     width: 6px;
     height: 2px;
     padding: 1px;
-    /* padding-bottom: 20px; */
-    /* margin-top: 10px; */
     background: none;
-    /* font-weight: 40px; */
     cursor: pointer;
-
     color:#ffdae5;
 }
 
@@ -58,6 +49,5 @@
     font-weight: bold;
 }
 b{
-   color:#ffdae5;
-   /* color: #DB7093 */
+    color:#ffdae5;
 }
