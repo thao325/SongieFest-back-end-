@@ -35,10 +35,11 @@ form {
 
 .submit{
     text-align: center;
+    color: #ffdae5;
     cursor: pointer;
     background-color: palevioletred;
     border-radius: 3px;
-    height:27px;
+    height:20px;
     width:90px;
     margin: auto;
     
