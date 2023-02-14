@@ -1,12 +1,13 @@
 import React from "react";
-
+import "../style-sheets/Logout.css";
 
 function LogoutPage() {
 
 
     return (
-      <div className="logout-container">
-        <h1>You are now logged out!</h1>
+      // <div className="logout-container">
+      <div className="logout-page">
+        <div className="logout-text">You are logged out!</div>
       </div>
   );
 }
