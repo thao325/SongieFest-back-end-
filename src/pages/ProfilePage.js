@@ -41,6 +41,8 @@ function ProfilePage() {
               songs={post.songs}
             />
           );
+          posts.push(<br></br>)
+          posts.push(<br></br>)
         }
         // console.log(response.data[0])
         setMusicPosts(posts);
@@ -74,7 +76,7 @@ function ProfilePage() {
       <br></br>
       <br></br>
       <br></br>
-      <br></br>
+      
       {musicPosts}
       {/* <ProfilePageList musicPosts={musicPosts}></ProfilePageList> */}
     </div>

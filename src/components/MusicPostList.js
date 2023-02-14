@@ -27,6 +27,7 @@ function MusicPostList({ musicPosts, grabMusicPost }) {
   for (const post of posts){
     postsWithSpace.push(post)
     postsWithSpace.push(<br></br>)
+    postsWithSpace.push(<br></br>)
 
   }
 
