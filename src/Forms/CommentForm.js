@@ -74,9 +74,9 @@ function CommentForm() {
           placeholder="Write a comment"
         />
         <br></br>
-        <p className="submit" type="submit">
+        <button className="submit" type="submit">
           Submit
-        </p>
+        </button>
       </form>
     </>
   );
