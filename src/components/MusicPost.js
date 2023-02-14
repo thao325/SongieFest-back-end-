@@ -35,7 +35,7 @@ function MusicPost({ id, username, date, likes_count, songs, grabMusicPost }) {
     setState(!state)
     
     const newLikesCount = likesCount + value;
-    console.log(newLikesCount)
+    // console.log(newLikesCount)
 
     const cookieValue = document.cookie
       .split("; ")

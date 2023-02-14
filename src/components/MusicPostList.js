@@ -23,16 +23,16 @@ function MusicPostList({ musicPosts, grabMusicPost }) {
   ))
 
 
-  // const postsWithComments = [];
-  // for (const post of posts){
-  //   postsWithComments.push(post)
-  //   postsWithComments.push(<CommentViewButton key={post.props.id} musicPostId={post.id}></CommentViewButton>)
+  const postsWithSpace = [];
+  for (const post of posts){
+    postsWithSpace.push(post)
+    postsWithSpace.push(<br></br>)
 
-  // }
+  }
 
   return (
     <div className="music-posts-container">
-      {posts}
+      {postsWithSpace}
 
     </div>
   );
