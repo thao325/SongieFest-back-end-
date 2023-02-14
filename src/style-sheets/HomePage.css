@@ -2,16 +2,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 40px;
+    font-size: 35px;
     padding-top: 200px;
 }
 
 .home-heading {
-    font-size: 60px;
+    font-size: 50px;
     margin-bottom: 50px;
         
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 60px;
@@ -21,9 +21,17 @@
 
 .description {
     font-size: 30px;
-    margin-bottom: 50px;
+    position: absolute;
+    top: 90%;
 }
 
 .sub-description {
     font-size: 20px;
+    position: absolute;
+    top: 120%;
+}
+
+.home-heart {
+    position: absolute;
+    top: 140%;
 }
